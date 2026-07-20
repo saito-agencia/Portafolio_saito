@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>René Saito | Portafolio Profesional & Fullstack Developer</title>
+    <meta name="description" content="Portafolio profesional de René Saito - Desarrollador Web Fullstack & Diseñador UI/UX especializado en aplicaciones web modernas, rápidas y elegantes.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Background Decorator Blobs -->
+    <div class="bg-glow blob-1"></div>
+    <div class="bg-glow blob-2"></div>
+    <div class="bg-glow blob-3"></div>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">Saito</span>
+                <span class="logo-accent">.dev</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active">Inicio</a></li>
+                    <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+                    <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar Tema">
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars icon-bars"></i>
+                    <i class="fa-solid fa-xmark icon-close"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero section" id="hero">
+            <div class="container hero-grid">
+                <div class="hero-content fade-in">
+                    <div class="status-badge">
+                        <span class="pulse-dot"></span>
+                        <span>Disponible para nuevos proyectos</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Hola, soy <br>
+                        <span class="gradient-text">René Saito</span>
+                    </h1>
+
+                    <h2 class="hero-subtitle">
+                        Desarrollador Web Fullstack &amp; Diseñador UI/UX
+                    </h2>
+
+                    <p class="hero-description">
+                        Transformo ideas complejas en experiencias digitales de alto impacto, intuitivas y optimizadas. Especializado en arquitecturas frontend modernas y soluciones backend robustas.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="btn btn-primary">
+                            <span>Ver Mis Trabajos</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contacto" class="btn btn-secondary">
+                            <span>Contactar</span>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline" id="cv-btn">
+                            <i class="fa-solid fa-download"></i>
+                            <span>CV</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-socials">
+                        <span class="socials-label">Sígueme:</span>
+                        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-link">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="mailto:renesaito@example.com" aria-label="Email" class="social-link">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual fade-in">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <div class="window-buttons">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="window-title">DeveloperProfile.ts</div>
+                        </div>
+                        <div class="window-body">
+                            <pre><code><span class="token-keyword">const</span> developer = {
+  <span class="token-property">nombre</span>: <span class="token-string">'René Saito'</span>,
+  <span class="token-property">rol</span>: <span class="token-string">'Fullstack Software Engineer'</span>,
+  <span class="token-property">ubicacion</span>: <span class="token-string">'México 🇲🇽'</span>,
+  <span class="token-property">enfoque</span>: [
+    <span class="token-string">'Modern Web Apps'</span>,
+    <span class="token-string">'UI/UX Architecture'</span>,
+    <span class="token-string">'Scalable Backend'</span>
+  ],
+  <span class="token-property">tecnologias</span>: [
+    <span class="token-string">'TypeScript'</span>, <span class="token-string">'React'</span>,
+    <span class="token-string">'Node.js'</span>, <span class="token-string">'Python'</span>,
+    <span class="token-string">'Tailwind/CSS3'</span>, <span class="token-string">'PostgreSQL'</span>
+  ],
+  <span class="token-property">estado</span>: <span class="token-string">'Construyendo el futuro web ✨'</span>
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="container stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Proyectos Entregados</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Años de Experiencia</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Satisfacción Cliente</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Tecnologías Dominadas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Mí Section -->
+        <section class="section sobre-mi" id="sobre-mi">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-subtitle">Conóceme</span>
+                    <h2 class="section-title">Sobre Mí</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text glass-card fade-in">
+                        <h3>Apasionado por la tecnología y la creación de soluciones eficientes</h3>
+                        <p>
+                            Soy un desarrollador comprometido con la excelencia técnica y el diseño centrado en el usuario. Me enfoco en escribir código limpio, modular y escalable que aporte valor real a cada proyecto.
+                        </p>
+                        <p>
+                            Mi trayectoria combina sólidas bases en ingeniería de software con un ojo analítico para la estética y la experiencia de usuario. Siempre me encuentro aprendiendo y adaptándome a las mejores prácticas de la industria.
+                        </p>
+
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-code text-accent"></i>
+                                <div>
+                                    <h4>Código Limpio</h4>
+                                    <p>Arquitectura organizada y mantenible a largo plazo.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-gauge-high text-accent"></i>
+                                <div>
+                                    <h4>Alto Rendimiento</h4>
+                                    <p>Sitios optimizados para máxima velocidad de carga.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-wand-magic-sparkles text-accent"></i>
+                                <div>
+                                    <h4>Diseño Moderno</h4>
+                                    <p>Interfaces dinámicas, responsivas y visualmente impactantes.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-users text-accent"></i>
+                                <div>
+                                    <h4>Trabajo Colaborativo</h4>
+                                    <p>Comunicación fluida y metodologías ágiles.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades Section -->
+        <section class="section habilidades" id="habilidades">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-subtitle">Capacidades Técnicas</span>
+                    <h2 class="section-title">Mis Habilidades</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="skills-categories">
+                    <div class="skills-card glass-card fade-in">
+                        <div class="skills-card-header">
+                            <i class="fa-solid fa-laptop-code card-icon"></i>
+                            <h3>Frontend Development</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>HTML5 / CSS3 / ES6+</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JavaScript &amp; TypeScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>React.js / Next.js</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Tailwind CSS &amp; UI Styling</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-card glass-card fade-in">
+                        <div class="skills-card-header">
+                            <i class="fa-solid fa-server card-icon"></i>
+                            <h3>Backend &amp; Base de Datos</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Node.js / Express</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Python &amp; FastAPI / Django</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>PostgreSQL / MongoDB</span>
+                                    <span>82%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 82%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>REST APIs &amp; GraphQL</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-card glass-card fade-in">
+                        <div class="skills-card-header">
+                            <i class="fa-solid fa-gears card-icon"></i>
+                            <h3>Herramientas &amp; DevOps</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git &amp; GitHub Workflow</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Docker &amp; Containers</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Figma &amp; UI/UX Prototyping</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Vercel / AWS / CI/CD</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos Section -->
+        <section class="section proyectos" id="proyectos">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-subtitle">Portafolio Seleccionado</span>
+                    <h2 class="section-title">Mis Proyectos Destacados</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Portfolio Filters -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="fullstack">Fullstack</button>
+                    <button class="filter-btn" data-filter="design">Diseño UI/UX</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Dynamic rendering by projects.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiencia Section -->
+        <section class="section experiencia" id="experiencia">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-subtitle">Historial Profesional</span>
+                    <h2 class="section-title">Experiencia &amp; Educación</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item left fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">2024 - Presente</span>
+                            <h3 class="timeline-title">Desarrollador Fullstack Senior / Lead</h3>
+                            <span class="timeline-company">Saito Tech Studio</span>
+                            <p>Desarrollo de arquitecturas web modernas con React, Next.js y Node.js. Liderazgo de proyectos cliente a cliente con entrega continua y estándares de alta calidad visual.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">2022 - 2024</span>
+                            <h3 class="timeline-title">Desarrollador Frontend &amp; UI Specialist</h3>
+                            <span class="timeline-company">Agencia Digital Innovación</span>
+                            <p>Creación de interfaces interactivas, dashboards analíticos y sistemas de diseño multiplataforma para clientes corporativos y startups internacionales.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">2020 - 2022</span>
+                            <h3 class="timeline-title">Ingeniería en Software &amp; Ciencias de la Computación</h3>
+                            <span class="timeline-company">Universidad Tecnológica</span>
+                            <p>Especialización en estructura de datos, algoritmos, bases de datos relacionales y desarrollo de software orientado a objetos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto Section -->
+        <section class="section contacto" id="contacto">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-subtitle">¿Tienes un proyecto en mente?</span>
+                    <h2 class="section-title">Ponte en Contacto</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info glass-card fade-in">
+                        <h3>¡Hablemos!</h3>
+                        <p>Estoy disponible para proyectos freelance, oportunidades laborales a tiempo completo o colaboraciones interesadas en desarrollo de software.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="icon-box">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="detail-label">Email</span>
+                                    <a href="mailto:renesaito@example.com" class="detail-value">renesaito@example.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="detail-label">Ubicación</span>
+                                    <span class="detail-value">México (Disponible Remoto)</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="icon-box">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <div>
+                                    <span class="detail-label">GitHub</span>
+                                    <a href="https://github.com" target="_blank" rel="noopener" class="detail-value">github.com/renesaito</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-socials">
+                            <h4>Redes Sociales</h4>
+                            <div class="social-icons">
+                                <a href="https://github.com" target="_blank" rel="noopener" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form glass-card fade-in" id="contact-form">
+                        <h3>Envíame un mensaje</h3>
+
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" placeholder="Asunto del mensaje" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto o consulta..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                            <span>Enviar Mensaje</span>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal Dialog -->
+    <div class="modal" id="project-modal" aria-hidden="true">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic Content filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#hero" class="logo">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">Saito</span>
+                    <span class="logo-accent">.dev</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </a>
+                <p>© 2026 René Saito. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#hero" class="back-to-top" aria-label="Volver arriba">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/projects.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
