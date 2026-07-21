@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('saito-portfolio-theme') || 'dark';
+    const savedTheme = localStorage.getItem('saito-portfolio-theme') || 'light';
 
     document.documentElement.setAttribute('data-theme', savedTheme);
 

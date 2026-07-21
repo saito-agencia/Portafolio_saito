@@ -84,8 +84,8 @@ function renderProjects(filter = 'all') {
 
     projectsGrid.innerHTML = '';
 
-    const filteredProjects = filter === 'all' 
-        ? projectsData 
+    const filteredProjects = filter === 'all'
+        ? projectsData
         : projectsData.filter(project => project.category === filter);
 
     if (filteredProjects.length === 0) {
@@ -101,7 +101,7 @@ function renderProjects(filter = 'all') {
     filteredProjects.forEach(project => {
         const projectCard = document.createElement('article');
         projectCard.className = 'project-card glass-card fade-in visible';
-        
+
         const techTagsHtml = project.technologies
             .map(tech => `<span class="tech-tag">${tech}</span>`)
             .join('');
