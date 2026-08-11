@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initModalEvents();
     initContactForm();
     initCvButton();
+    initHeroParallax();
 
     // Renderizar proyectos por defecto
     renderProjects('all');
@@ -231,4 +232,34 @@ function showToast(message, type = 'success') {
             toast.remove();
         }, 300);
     }, 4000);
+}
+
+/* 11. HERO PARALLAX EFFECT
+   ========================================================================== */
+function initHeroParallax() {
+    const heroPhoto = document.getElementById('hero-photo');
+    if (!heroPhoto) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.pageYOffset;
+                const heroSection = document.getElementById('hero');
+                if (!heroSection) return;
+
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+                // Only apply parallax while hero is visible
+                if (scrollY < heroBottom) {
+                    const offset = scrollY * 0.3;
+                    heroPhoto.style.transform = `translate(-50%, calc(-55% - ${offset}px))`;
+                }
+
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
 }
