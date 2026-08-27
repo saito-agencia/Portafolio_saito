@@ -161,7 +161,7 @@ const designData = [
         title: 'Manual de Marca',
         image: 'assets/images/Fernando/Portada.png',
         category: 'Branding',
-        description: 'Creación del manual de identidad visual para la marca personal de Fernando. Un proyecto enfocado en conectar el valor de sus raíces con un diseño moderno, fresco y actualizado para proyectar una imagen sólida y coherente.',
+        description: 'Creación del manual de identidad visual para la marca de asesoría de Fernando. Un proyecto enfocado en conectar el valor de sus raíces con un diseño moderno, fresco y actualizado para proyectar una imagen sólida y coherente.',
         type: 'design-showcase',
         cover: 'assets/images/Fernando/Portada.png',
         carousel: [
@@ -188,7 +188,7 @@ const designData = [
         title: 'Sima',
         image: 'assets/images/Sima/Animación Sima.mp4',
         category: 'Diseño Web',
-        description: 'Proyecto de identidad y diseño para Sima.',
+        description: 'Rediseño colaborativo de la interfaz UI/UX y creación de wireframes para SIMA, el software médico del Hospital La Carlota. Un enfoque centrado en optimizar la gestión médica y mejorar la experiencia de servicio de los pacientes.',
         type: 'design-showcase',
         cover: '',
         carousel: [],
@@ -200,47 +200,47 @@ const designData = [
                 'assets/images/Sima/Laptop_2.png'
             ]
         ],
-        longDescription: 'Descripción detallada del proyecto Sima. (Puedes modificar este texto más adelante).'
+        longDescription: 'Desarrollo colaborativo de la estructura de interfaz (wireframes) para la renovación de SIMA, la plataforma y software médico en línea del Hospital La Carlota. El proyecto consistió en un rediseño integral centrado en las personas (User-Centered Design), enfocado en resolver las necesidades operativas de los médicos y optimizar la experiencia digital de los pacientes.<br><br>A través de la arquitectura de información y la simplificación de flujos de navegación, se sentaron las bases para una plataforma intuitiva y eficiente, orientada a agilizar los procesos médicos y elevar la calidad de la atención al usuario final.'
     },
     {
         id: 'design-3',
         title: 'Little Friends Vet',
         image: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
         category: 'Social Media',
-        description: 'Creación de marca y diseño visual para la clínica veterinaria Little Friends Vet.',
+        description: 'Homogeneización de la imagen corporativa en redes sociales y unificación de línea gráfica para Little Friends vet, abarcando desde la estandarización visual hasta el desarrollo de contenido digital.',
         type: 'design-showcase',
-        cover: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
+        cover: '',
         carousel: [],
         elements: [
             'assets/images/little frients vet.png'
         ],
-        longDescription: 'Este proyecto de branding se centró en desarrollar una identidad amigable y profesional para Little Friends Vet, transmitiendo confianza y calidez tanto en su logotipo como en los materiales gráficos secundarios.'
+        longDescription: 'Proyecto de homogeneización de marca y estrategia de comunicación visual para las redes sociales de la clínica veterinaria Little Friends Vet. El trabajo se enfocó en consolidar la coherencia visual del centro veterinario a través de la unificación de sus líneas gráficas y la estandarización de sus activos digitales.<br><br>Se desarrollaron plantillas, elementos gráficos personalizados y un plan de creación de contenido enfocado en transmitir una imagen sólida, confiable y cercana. Esto permitió alinear la narrativa visual de la veterinaria en sus canales digitales.'
     },
     {
         id: 'design-4',
         title: 'Biblia 5D',
         image: 'assets/images/BIBLIA 5D Trailer.mp4',
         category: 'Creación de identidad',
-        description: 'Proyecto de video y edición para Biblia 5D.',
+        description: 'Creación del logotipo y desarrollo del sistema gráfico para el programa de TV "5D". Incluye ilustración de personajes y recursos visuales destinados a la producción en pantalla y transmisión para Hope Channel y SETAI.',
         type: 'design-showcase',
         cover: 'assets/images/BIBLIA 5D Trailer.mp4',
         carousel: [],
         elements: [
             'assets/images/biblia 5d.png'
         ],
-        longDescription: 'Este proyecto de video destaca la edición y presentación audiovisual para Biblia 5D.'
+        longDescription: 'Desarrollo de la identidad gráfica y universo visual para el programa de televisión 5D, producido en colaboración para Hope Channel y SETAI. El proyecto abarcó desde el diseño del logotipo principal del programa hasta la creación de un paquete completo de recursos gráficos, ilustraciones de personajes y elementos dinámicos pensados específicamente para enriquecer la producción audiovisual y la escenografía del show.<br><br>El objetivo principal fue construir una estética atractiva, cercana y coherente con el formato televisivo, proporcionando al equipo de producción las herramientas visuales necesarias para adaptar el contenido tanto en pantalla como en medios digitales.'
     },
     {
         id: 'design-5',
-        title: 'Video publicitario tipográfico',
+        title: 'Animación tipográfica',
         image: 'assets/images/Comp 1_2.mp4',
         category: 'Motion Graphics',
-        description: 'Motion graphic adaptado con base a una pista de un anuncio publicitario de Nike.',
+        description: 'Animación en motion graphics de kinetic typography (lyrics animados) sobre un comercial existente de Nike, sincronizando texto y ritmo para potenciar la narrativa y el impacto visual del video.',
         type: 'design-showcase',
         cover: 'assets/images/Comp 1_2.mp4',
         carousel: [],
         elements: [],
-        longDescription: 'Adaptación de motion graphics sincronizada con la pista de audio de un comercial de Nike.'
+        longDescription: 'Desarrollo de animación tipográfica y motion graphics aplicados sobre un video publicitario existente de la marca Nike. El proyecto consistió en la sincronización precisa de kinetic typography (lyrics animados) sobre la pista de audio original del comercial, integrando el texto de forma orgánica con el ritmo, la dinamismo y el estilo visual característico de la marca.<br><br>El objetivo principal fue potenciar el impacto visual de la pieza publicitaria, reforzando el mensaje del audio a través de transiciones fluidas, tipografía expresiva y efectos gráficos que acompañan la energía de las imágenes.'
     }
 ];
 
