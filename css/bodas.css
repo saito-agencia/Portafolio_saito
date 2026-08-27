@@ -36,7 +36,6 @@ body.bodas-page[data-theme="dark"] {
     /* Bodas specific typography */
     --font-heading: 'Pinyon Script', cursive;
     --font-subheading: 'GFS Didot', serif;
-    --font-body: 'Avenir', 'Futura', sans-serif;
 }
 
 .hero-bodas {
