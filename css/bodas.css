@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Pinyon Script';
+    src: url('../assets/PinyonScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GFS Didot';
+    src: url('../assets/GFSDidot-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --bg-color: #FFFDF4;
+    --text-color: #513627;
+    --primary-color: #513627;
+    --secondary-color: #8c6b5d;
+    --glass-bg: rgba(255, 253, 244, 0.7);
+    --glass-border: rgba(81, 54, 39, 0.2);
+    
+    /* Bodas specific typography */
+    --font-heading: 'Pinyon Script', cursive;
+    --font-subheading: 'GFS Didot', serif;
+    --font-body: 'Avenir', 'Futura', sans-serif;
+}
+
+body[data-theme="light"],
+body[data-theme="dark"] {
+    /* Forcing the theme regardless of toggle for the Bodas page to ensure aesthetics */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+}
+
+.hero-bodas {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bodas .hero-title-interactive {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+.hero-bodas .hero-subtitle {
+    font-family: var(--font-subheading);
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+/* Modifying nav for bodas */
+.nav-bar-glass {
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+}
+
+.logo-img {
+    filter: brightness(0) saturate(100%) invert(21%) sepia(21%) saturate(1476%) hue-rotate(343deg) brightness(93%) contrast(92%); /* Translates approx to #513627 */
+}
