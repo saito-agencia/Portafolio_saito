@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/bodas.css">
 </head>
 
-<body>
+<body class="bodas-page">
     <!-- Background Decorator Blobs -->
     <div class="bg-glow blob-1" style="background: rgba(255, 253, 244, 0.4);"></div>
     <div class="bg-glow blob-2" style="background: rgba(140, 107, 93, 0.2);"></div>
@@ -25,7 +25,6 @@
         <div class="container">
             <div class="nav-bar-glass">
                 <a href="index.html" class="logo nav-logo">
-                    <!-- We use the same logo but color filtered via CSS -->
                     <img src="assets/images/LOGO SAITO CLARO.png" alt="Saito Logo" class="logo-img">
                 </a>
 
@@ -42,8 +41,8 @@
 
                 <div class="header-actions">
                     <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menú">
-                        <i class="fa-solid fa-bars icon-bars" style="color: var(--primary-color);"></i>
-                        <i class="fa-solid fa-xmark icon-close" style="color: var(--primary-color);"></i>
+                        <i class="fa-solid fa-bars icon-bars"></i>
+                        <i class="fa-solid fa-xmark icon-close"></i>
                     </button>
                 </div>
             </div>
@@ -66,8 +65,8 @@
         <section class="section photography" id="portfolio-bodas">
             <div class="container">
                 <div class="section-header center">
-                    <h2 class="section-title" style="font-family: var(--font-subheading); color: var(--primary-color);">Portafolio de Bodas</h2>
-                    <div class="section-line" style="background: var(--primary-color);"></div>
+                    <h2 class="section-title" style="font-family: var(--font-subheading);">Portafolio de Bodas</h2>
+                    <div class="section-line"></div>
                 </div>
 
                 <div class="projects-grid" id="bodas-grid">
@@ -80,63 +79,63 @@
         <section class="section contacto" id="contacto">
             <div class="container">
                 <div class="section-header center">
-                    <span class="section-subtitle" style="color: var(--secondary-color);">¿Tienes un proyecto en mente?</span>
-                    <h2 class="section-title" style="font-family: var(--font-subheading); color: var(--primary-color);">Ponte en Contacto</h2>
-                    <div class="section-line" style="background: var(--primary-color);"></div>
+                    <span class="section-subtitle">¿Tienes un proyecto en mente?</span>
+                    <h2 class="section-title" style="font-family: var(--font-subheading);">Ponte en Contacto</h2>
+                    <div class="section-line"></div>
                 </div>
 
                 <div class="contact-wrapper">
-                    <div class="contact-info glass-card fade-in" style="background: var(--glass-bg); border-color: var(--glass-border);">
-                        <h3 style="color: var(--primary-color);">¡Hablemos!</h3>
-                        <p style="color: var(--text-color);">Escríbeme para cotizar la cobertura de tu boda y apartar la fecha de tu evento.</p>
+                    <div class="contact-info glass-card fade-in">
+                        <h3>¡Hablemos!</h3>
+                        <p>Escríbeme para cotizar la cobertura de tu boda y apartar la fecha de tu evento.</p>
 
                         <div class="contact-details">
                             <div class="contact-detail-item">
-                                <div class="icon-box" style="background: rgba(81, 54, 39, 0.1); color: var(--primary-color);">
+                                <div class="icon-box">
                                     <i class="fa-regular fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <span class="detail-label" style="color: var(--secondary-color);">Email</span>
-                                    <a href="mailto:saito.agencia.contacto@gmail.com" class="detail-value" style="color: var(--primary-color);">saito.agencia.contacto@gmail.com</a>
+                                    <span class="detail-label">Email</span>
+                                    <a href="mailto:saito.agencia.contacto@gmail.com" class="detail-value">saito.agencia.contacto@gmail.com</a>
                                 </div>
                             </div>
                             
                             <div class="contact-detail-item">
-                                <div class="icon-box" style="background: rgba(81, 54, 39, 0.1); color: var(--primary-color);">
+                                <div class="icon-box">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <div>
-                                    <span class="detail-label" style="color: var(--secondary-color);">WhatsApp</span>
-                                    <a href="https://wa.me/qr/AIB3PY3H74K6I1" target="_blank" rel="noopener" class="detail-value" style="color: var(--primary-color);">Chat directo</a>
+                                    <span class="detail-label">WhatsApp</span>
+                                    <a href="https://wa.me/qr/AIB3PY3H74K6I1" target="_blank" rel="noopener" class="detail-value">Chat directo</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <form action="https://formspree.io/f/myeygvvg" method="POST" class="contact-form glass-card fade-in" id="contact-form" style="background: var(--glass-bg); border-color: var(--glass-border);">
-                        <h3 style="color: var(--primary-color);">Envíame un mensaje</h3>
+                    <form action="https://formspree.io/f/myeygvvg" method="POST" class="contact-form glass-card fade-in" id="contact-form">
+                        <h3>Envíame un mensaje</h3>
 
                         <div class="form-group">
-                            <label for="name" style="color: var(--secondary-color);">Nombre Completo</label>
-                            <input type="text" id="name" name="name" placeholder="Tu nombre" style="border-color: var(--glass-border); color: var(--text-color);" required>
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email" style="color: var(--secondary-color);">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" placeholder="tu@correo.com" style="border-color: var(--glass-border); color: var(--text-color);" required>
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="subject" style="color: var(--secondary-color);">Fecha de la Boda (Aprox)</label>
-                            <input type="text" id="subject" name="subject" placeholder="Mes / Año" style="border-color: var(--glass-border); color: var(--text-color);" required>
+                            <label for="subject">Fecha de la Boda (Aprox)</label>
+                            <input type="text" id="subject" name="subject" placeholder="Mes / Año" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="message" style="color: var(--secondary-color);">Mensaje</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Cuéntame un poco sobre su gran día..." style="border-color: var(--glass-border); color: var(--text-color);" required></textarea>
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Cuéntame un poco sobre su gran día..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block" id="submit-btn" style="background: var(--primary-color); color: var(--bg-color);">
+                        <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
                             <span>Enviar Mensaje</span>
                             <i class="fa-regular fa-paper-plane"></i>
                         </button>
@@ -148,15 +147,15 @@
 
     <!-- Project Modal Dialog -->
     <div class="modal" id="project-modal" aria-hidden="true">
-        <div class="modal-overlay" id="modal-overlay" style="background: rgba(255,253,244,0.9);"></div>
-        <button class="modal-project-nav modal-project-prev" id="modal-project-prev" aria-label="Proyecto Anterior" style="display: none; color: var(--primary-color);">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <button class="modal-project-nav modal-project-prev" id="modal-project-prev" aria-label="Proyecto Anterior" style="display: none;">
             <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <button class="modal-project-nav modal-project-next" id="modal-project-next" aria-label="Siguiente Proyecto" style="display: none; color: var(--primary-color);">
+        <button class="modal-project-nav modal-project-next" id="modal-project-next" aria-label="Siguiente Proyecto" style="display: none;">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
-        <div class="modal-content glass-card" style="background: var(--bg-color); border-color: var(--glass-border);">
-            <button class="modal-close" id="modal-close" aria-label="Cerrar Modal" style="color: var(--primary-color);">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar Modal">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="modal-body" id="modal-body">
@@ -169,16 +168,16 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- Footer -->
-    <footer class="footer" style="background: var(--bg-color); border-top: 1px solid var(--glass-border);">
+    <footer class="footer">
         <div class="container footer-container">
             <div class="footer-left">
                 <a href="#hero" class="logo">
                     <img src="assets/images/LOGO SAITO CLARO.png" alt="Saito Logo" class="logo-img">
                 </a>
-                <p style="color: var(--secondary-color);">© 2026 René Saito. Todos los derechos reservados.</p>
+                <p>© 2026 René Saito. Todos los derechos reservados.</p>
             </div>
             <div class="footer-right">
-                <a href="#hero" class="back-to-top" aria-label="Volver arriba" style="background: var(--primary-color); color: var(--bg-color);">
+                <a href="#hero" class="back-to-top" aria-label="Volver arriba">
                     <i class="fa-solid fa-arrow-up"></i>
                 </a>
             </div>
