@@ -48,6 +48,14 @@ body.bodas-page[data-theme="dark"] {
     padding: 2rem;
     position: relative;
     overflow: hidden;
+    background-image: url('../assets/images/JJ_PREVIEW.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-bodas .hero-wrapper {
+    display: none; /* Oculto porque la imagen de fondo ya tiene el texto */
 }
 
 .hero-bodas .hero-title-interactive {
