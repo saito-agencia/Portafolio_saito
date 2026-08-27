@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería | René Saito Photography</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Galería privada de fotografías — René Saito Photography">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Special+Gothic+Expanded+One&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Stack+Sans+Headline:wght@200;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+
+<body class="gallery-page">
+
+    <!-- ====== LOADING SCREEN ====== -->
+    <div class="login-screen" id="loading-screen">
+        <div style="text-align:center;color:var(--text-muted);">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem;margin-bottom:1rem;"></i>
+            <p>Cargando galería...</p>
+        </div>
+    </div>
+
+    <!-- ====== ERROR SCREEN ====== -->
+    <div class="login-screen hidden" id="error-screen">
+        <div class="password-container">
+            <i class="fa-solid fa-circle-exclamation" style="font-size:2.5rem;color:#dc3545;margin-bottom:1rem;"></i>
+            <h2>Galería no encontrada</h2>
+            <p>Este enlace no es válido o la galería ya no está disponible.</p>
+            <a href="index.html" class="g-btn g-btn-secondary g-btn-block mt-2">
+                <i class="fa-solid fa-arrow-left"></i> Volver al inicio
+            </a>
+        </div>
+    </div>
+
+    <!-- ====== PASSWORD SCREEN ====== -->
+    <div class="password-screen hidden" id="password-screen">
+        <div class="password-container">
+            <div class="lock-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h2 id="password-gallery-title">Galería Privada</h2>
+            <p>Ingresa la contraseña que te proporcionó el fotógrafo</p>
+
+            <form id="password-form">
+                <div class="password-input-group">
+                    <input type="password" id="gallery-password-input" placeholder="Contraseña" required
+                        autocomplete="off">
+                </div>
+                <div class="password-error" id="password-error">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    Contraseña incorrecta. Intenta de nuevo.
+                </div>
+                <button type="submit" class="g-btn g-btn-primary g-btn-block g-btn-lg">
+                    <i class="fa-solid fa-unlock"></i>
+                    <span>Acceder</span>
+                </button>
+            </form>
+
+            <p class="mt-2" style="font-size:0.75rem;color:var(--text-muted);">
+                <i class="fa-solid fa-camera"></i> René Saito Photography
+            </p>
+        </div>
+    </div>
+
+    <!-- ====== GALLERY CONTENT ====== -->
+    <div class="hidden" id="gallery-wrapper">
+
+        <!-- Cover / Hero -->
+        <section class="gallery-cover" id="gallery-cover">
+            <!-- Dynamic cover content rendered by JS -->
+        </section>
+
+        <!-- Section Navigation -->
+        <nav class="gallery-nav" id="gallery-nav">
+            <div class="gallery-nav-inner">
+                <div class="gallery-nav-tabs" id="gallery-nav-tabs">
+                    <!-- Dynamic tabs rendered by JS -->
+                </div>
+                <div class="gallery-nav-actions">
+                    <button class="g-btn g-btn-secondary g-btn-sm" id="download-all-btn">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Descargar Todas</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Photo Grid -->
+        <div class="gallery-content">
+            <div class="photos-grid" id="photos-grid">
+                <!-- Dynamic photos rendered by JS -->
+            </div>
+
+            <div class="empty-state hidden" id="photos-empty">
+                <i class="fa-solid fa-image"></i>
+                <p>No hay fotos en esta sección</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== LIGHTBOX ====== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-image-container">
+            <img class="lightbox-image" id="lightbox-image" alt="Foto" draggable="false">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-info">
+            <span class="lightbox-counter" id="lightbox-counter">1 / 10</span>
+            <div class="lightbox-actions">
+                <button class="lightbox-action-btn" id="lightbox-fav-btn" title="Marcar como favorita">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="lightbox-action-btn" id="lightbox-download-btn" title="Descargar original">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== FAVORITES BAR ====== -->
+    <div class="favorites-bar" id="favorites-bar">
+        <span class="fav-count" id="fav-count-display">
+            <i class="fa-solid fa-heart"></i>
+            <span id="fav-count-number">0</span> seleccionadas
+        </span>
+        <div class="fav-separator"></div>
+        <button id="download-selected-btn">
+            <i class="fa-solid fa-download"></i> Descargar seleccionadas
+        </button>
+        <button class="clear-fav-btn" id="clear-favorites-btn" title="Limpiar selección">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- ====== DOWNLOAD PROGRESS OVERLAY ====== -->
+    <div class="download-overlay" id="download-overlay">
+        <div class="download-modal">
+            <div class="download-icon">
+                <i class="fa-solid fa-box-archive"></i>
+            </div>
+            <h3>Preparando descarga...</h3>
+            <p id="download-description">Empaquetando fotos en calidad original</p>
+            <div class="download-progress">
+                <div class="download-progress-fill" id="download-progress-fill"></div>
+            </div>
+            <span class="download-status" id="download-status">0 / 0 fotos procesadas</span>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="gallery-toast-container" id="gallery-toast-container"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+
+    <!-- JSZip + FileSaver for ZIP downloads -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/gallery-client.js"></script>
+</body>
+
+</html>

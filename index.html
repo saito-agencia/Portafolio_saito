@@ -14,7 +14,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Special+Gothic+Expanded+One&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200;400;600&display=swap"
+        rel="stylesheet">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -40,10 +41,9 @@
                 <nav class="nav-menu" id="nav-menu">
                     <ul class="nav-list">
                         <li><a href="#hero" class="nav-link active">Inicio</a></li>
-                        <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
-                        <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
-                        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-                        <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                        <li><a href="#toolkit" class="nav-link">Tool Kit</a></li>
+                        <li><a href="#photography" class="nav-link">Proyectos</a></li>
+                        <li><a href="gallery.html" class="nav-link" target="_blank">Galerías</a></li>
                         <li><a href="#contacto" class="nav-link">Contacto</a></li>
                     </ul>
                 </nav>
@@ -63,6 +63,9 @@
         </div>
     </header>
 
+    <!-- Mobile Nav Overlay (glassmorphism backdrop) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <main>
         <!-- Hero Section -->
         <section class="hero section" id="hero">
@@ -78,13 +81,13 @@
                 <!-- Main Titles Area -->
                 <div class="hero-titles-area">
                     <a href="#photography" class="hero-title-link">
-                        <h1 class="hero-title-fill">Photography</h1>
+                        <h1 class="hero-title-interactive">Photography</h1>
                     </a>
 
                     <div class="hero-divider"></div>
 
                     <a href="#design" class="hero-title-link">
-                        <h2 class="hero-title-outline">Design</h2>
+                        <h2 class="hero-title-interactive">Design</h2>
                     </a>
                 </div>
 
@@ -94,11 +97,12 @@
                 </div>
 
                 <!-- Description Block (glassmorphism) -->
-                <div class="hero-description-block glass-block fade-in">
+                <div class="hero-description-block glass-block fade-in" id="hero-description">
                     <p><strong>Rediseño la presencia visual</strong> de marcas desde la <em>empatía</em>, el detalle
                         fotográfico y la precisión <em>técnica</em>.</p>
                     <div class="hero-cta-buttons">
-                        <a href="#" class="btn btn-primary" id="cv-btn">
+                        <a href="assets/CV_Rene_Flores_Guzman.pdf" download target="_blank" class="btn btn-primary"
+                            id="cv-btn">
                             <i class="fa-solid fa-download"></i>
                             <span>Descargar CV</span>
                         </a>
@@ -113,8 +117,8 @@
                 <div class="hero-footer fade-in">
                     <span class="hero-author-name">Rene saito</span>
                     <div class="hero-social-icons">
-                        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"
-                            class="hero-social-link">
+                        <a href="https://www.instagram.com/saito.pics/" target="_blank" rel="noopener"
+                            aria-label="Instagram" class="hero-social-link">
                             <img src="assets/images/instagram.png" alt="Instagram">
                         </a>
                         <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"
@@ -124,284 +128,99 @@
                         <a href="mailto:renesaito@example.com" aria-label="Email" class="hero-social-link">
                             <img src="assets/images/Correo.png" alt="Correo">
                         </a>
+                        <a href="https://wa.me/qr/AIB3PY3H74K6I1" target="_blank" rel="noopener" aria-label="WhatsApp" class="hero-social-link">
+                            <img src="assets/images/whatsapp.webp" alt="WhatsApp">
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sobre Mí Section -->
-        <section class="section sobre-mi" id="sobre-mi">
+        <!-- ============================================================
+             FOTOGRAFÍA Section
+             ============================================================ -->
+        <section class="section proyectos proyectos-photography" id="photography">
             <div class="container">
                 <div class="section-header center">
-                    <span class="section-subtitle">Conóceme</span>
-                    <h2 class="section-title">Sobre Mí</h2>
+                    <span class="section-subtitle">Portafolio Visual</span>
+                    <h2 class="section-title">Fotografía</h2>
                     <div class="section-line"></div>
                 </div>
 
-                <div class="about-grid">
-                    <div class="about-text glass-card fade-in">
-                        <h3>Apasionado por la tecnología y la creación de soluciones eficientes</h3>
-                        <p>
-                            Soy un desarrollador comprometido con la excelencia técnica y el diseño centrado en el
-                            usuario. Me enfoco en escribir código limpio, modular y escalable que aporte valor real a
-                            cada proyecto.
-                        </p>
-                        <p>
-                            Mi trayectoria combina sólidas bases en ingeniería de software con un ojo analítico para la
-                            estética y la experiencia de usuario. Siempre me encuentro aprendiendo y adaptándome a las
-                            mejores prácticas de la industria.
-                        </p>
-
-                        <div class="about-highlights">
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-code text-accent"></i>
-                                <div>
-                                    <h4>Código Limpio</h4>
-                                    <p>Arquitectura organizada y mantenible a largo plazo.</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-gauge-high text-accent"></i>
-                                <div>
-                                    <h4>Alto Rendimiento</h4>
-                                    <p>Sitios optimizados para máxima velocidad de carga.</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-wand-magic-sparkles text-accent"></i>
-                                <div>
-                                    <h4>Diseño Moderno</h4>
-                                    <p>Interfaces dinámicas, responsivas y visualmente impactantes.</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-users text-accent"></i>
-                                <div>
-                                    <h4>Trabajo Colaborativo</h4>
-                                    <p>Comunicación fluida y metodologías ágiles.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Photography Gallery Grid -->
+                <div class="gallery-grid" id="photography-grid">
+                    <!-- Items rendered by projects.js -->
                 </div>
             </div>
         </section>
 
-        <!-- Habilidades Section -->
-        <section class="section habilidades" id="habilidades">
+        <!-- ============================================================
+             DISEÑO Section
+             ============================================================ -->
+        <section class="section proyectos proyectos-design" id="design">
             <div class="container">
                 <div class="section-header center">
-                    <span class="section-subtitle">Capacidades Técnicas</span>
-                    <h2 class="section-title">Mis Habilidades</h2>
+                    <span class="section-subtitle">Identidad & Marca</span>
+                    <h2 class="section-title">Diseño</h2>
                     <div class="section-line"></div>
                 </div>
 
-                <div class="skills-categories">
-                    <div class="skills-card glass-card fade-in">
-                        <div class="skills-card-header">
-                            <i class="fa-solid fa-laptop-code card-icon"></i>
-                            <h3>Frontend Development</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>HTML5 / CSS3 / ES6+</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>JavaScript &amp; TypeScript</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>React.js / Next.js</span>
-                                    <span>88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 88%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Tailwind CSS &amp; UI Styling</span>
-                                    <span>92%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 92%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills-card glass-card fade-in">
-                        <div class="skills-card-header">
-                            <i class="fa-solid fa-server card-icon"></i>
-                            <h3>Backend &amp; Base de Datos</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Node.js / Express</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Python &amp; FastAPI / Django</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>PostgreSQL / MongoDB</span>
-                                    <span>82%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 82%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>REST APIs &amp; GraphQL</span>
-                                    <span>88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 88%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills-card glass-card fade-in">
-                        <div class="skills-card-header">
-                            <i class="fa-solid fa-gears card-icon"></i>
-                            <h3>Herramientas &amp; DevOps</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Git &amp; GitHub Workflow</span>
-                                    <span>92%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 92%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Docker &amp; Containers</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 75%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Figma &amp; UI/UX Prototyping</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%;"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Vercel / AWS / CI/CD</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Design Gallery Grid -->
+                <div class="gallery-grid" id="design-grid">
+                    <!-- Items rendered by projects.js -->
                 </div>
             </div>
         </section>
 
-        <!-- Proyectos Section -->
-        <section class="section proyectos" id="proyectos">
+        <!-- Tool Kit Section -->
+        <section class="section toolkit" id="toolkit">
             <div class="container">
                 <div class="section-header center">
-                    <span class="section-subtitle">Portafolio Seleccionado</span>
-                    <h2 class="section-title">Mis Proyectos Destacados</h2>
+                    <span class="section-subtitle">Software & Apps</span>
+                    <h2 class="section-title">Tool Kit</h2>
                     <div class="section-line"></div>
                 </div>
-
-                <!-- Portfolio Filters -->
-                <div class="filter-container">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="web">Web Apps</button>
-                    <button class="filter-btn" data-filter="mobile">Mobile</button>
-                    <button class="filter-btn" data-filter="fullstack">Fullstack</button>
-                    <button class="filter-btn" data-filter="design">Diseño UI/UX</button>
-                </div>
-
-                <!-- Projects Grid -->
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Dynamic rendering by projects.js -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Experiencia Section -->
-        <section class="section experiencia" id="experiencia">
-            <div class="container">
-                <div class="section-header center">
-                    <span class="section-subtitle">Historial Profesional</span>
-                    <h2 class="section-title">Experiencia &amp; Educación</h2>
-                    <div class="section-line"></div>
-                </div>
-
-                <div class="timeline">
-                    <div class="timeline-item left fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2024 - Presente</span>
-                            <h3 class="timeline-title">Desarrollador Fullstack Senior / Lead</h3>
-                            <span class="timeline-company">Saito Tech Studio</span>
-                            <p>Desarrollo de arquitecturas web modernas con React, Next.js y Node.js. Liderazgo de
-                                proyectos cliente a cliente con entrega continua y estándares de alta calidad visual.
-                            </p>
-                        </div>
+                
+                <div class="toolkit-grid">
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/photoshop.webp" alt="Photoshop">
+                        <span>Photoshop</span>
                     </div>
-
-                    <div class="timeline-item right fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2022 - 2024</span>
-                            <h3 class="timeline-title">Desarrollador Frontend &amp; UI Specialist</h3>
-                            <span class="timeline-company">Agencia Digital Innovación</span>
-                            <p>Creación de interfaces interactivas, dashboards analíticos y sistemas de diseño
-                                multiplataforma para clientes corporativos y startups internacionales.</p>
-                        </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/illustrator.webp" alt="Illustrator">
+                        <span>Illustrator</span>
                     </div>
-
-                    <div class="timeline-item left fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2020 - 2022</span>
-                            <h3 class="timeline-title">Ingeniería en Software &amp; Ciencias de la Computación</h3>
-                            <span class="timeline-company">Universidad Tecnológica</span>
-                            <p>Especialización en estructura de datos, algoritmos, bases de datos relacionales y
-                                desarrollo de software orientado a objetos.</p>
-                        </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/indesign.webp" alt="InDesign">
+                        <span>InDesign</span>
+                    </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/lightroom.webp" alt="Lightroom">
+                        <span>Lightroom</span>
+                    </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/premier.webp" alt="Premiere">
+                        <span>Premiere</span>
+                    </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/after%20effects.webp" alt="After Effects">
+                        <span>After Effects</span>
+                    </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/Figma-logo.svg" alt="Figma">
+                        <span>Figma</span>
+                    </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/Blender.webp" alt="Blender">
+                        <span>Blender</span>
+                    </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/affinity.webp" alt="Affinity">
+                        <span>Affinity</span>
+                    </div>
+                    <div class="tool-item fade-in">
+                        <img src="assets/images/Tools/procreate.png" alt="Procreate">
+                        <span>Procreate</span>
                     </div>
                 </div>
             </div>
@@ -454,11 +273,24 @@
                                         class="detail-value">github.com/renesaito</a>
                                 </div>
                             </div>
+                            
+                            <div class="contact-detail-item">
+                                <div class="icon-box">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="detail-label">WhatsApp</span>
+                                    <a href="https://wa.me/qr/AIB3PY3H74K6I1" target="_blank" rel="noopener"
+                                        class="detail-value">Chat directo</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="contact-socials">
                             <h4>Redes Sociales</h4>
                             <div class="social-icons">
+                                <a href="https://wa.me/qr/AIB3PY3H74K6I1" target="_blank" rel="noopener" class="social-btn"><i
+                                        class="fa-brands fa-whatsapp"></i></a>
                                 <a href="https://github.com" target="_blank" rel="noopener" class="social-btn"><i
                                         class="fa-brands fa-github"></i></a>
                                 <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn"><i
@@ -506,6 +338,14 @@
     <!-- Project Modal Dialog -->
     <div class="modal" id="project-modal" aria-hidden="true">
         <div class="modal-overlay" id="modal-overlay"></div>
+        <button class="modal-project-nav modal-project-prev" id="modal-project-prev" aria-label="Proyecto Anterior"
+            style="display: none;">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="modal-project-nav modal-project-next" id="modal-project-next" aria-label="Siguiente Proyecto"
+            style="display: none;">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
         <div class="modal-content glass-card">
             <button class="modal-close" id="modal-close" aria-label="Cerrar Modal">
                 <i class="fa-solid fa-xmark"></i>
@@ -540,6 +380,9 @@
     <!-- JavaScript Files -->
     <script src="js/projects.js"></script>
     <script src="js/main.js"></script>
+    <button class="scroll-top-btn" id="scroll-top-btn" aria-label="volver al inicio">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 </body>
 
 </html>

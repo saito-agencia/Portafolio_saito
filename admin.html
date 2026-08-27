@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Galerías | René Saito</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Special+Gothic+Expanded+One&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+
+<body class="gallery-page">
+
+    <!-- ====== LOGIN SCREEN ====== -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-container">
+            <img src="assets/images/LOGO SAITO CLARO.png" alt="Saito Logo" class="login-logo" id="login-logo">
+            <h2>Panel de Administración</h2>
+            <p>Gestiona tus galerías de fotos para clientes</p>
+
+            <div class="login-error" id="login-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span id="login-error-text">Credenciales incorrectas</span>
+            </div>
+
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label for="admin-email">Correo electrónico</label>
+                    <input type="email" id="admin-email" placeholder="tu@correo.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Contraseña</label>
+                    <input type="password" id="admin-password" placeholder="••••••••" required
+                        autocomplete="current-password">
+                </div>
+                <button type="submit" class="g-btn g-btn-primary g-btn-block g-btn-lg" id="login-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Iniciar Sesión</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====== ADMIN DASHBOARD ====== -->
+    <div id="admin-dashboard" class="hidden">
+
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <a href="index.html" class="admin-back-link">
+                    <i class="fa-solid fa-arrow-left"></i> Portafolio
+                </a>
+                <img src="assets/images/LOGO SAITO CLARO.png" alt="Saito Logo" class="logo-img" id="admin-logo"
+                    style="height:32px;">
+            </div>
+            <div class="admin-header-actions">
+                <span class="admin-user-email" id="admin-email-display"></span>
+                <button class="g-btn g-btn-secondary g-btn-sm" id="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Salir</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- ====== GALLERY LIST VIEW ====== -->
+        <div class="admin-content" id="gallery-list-view">
+            <div class="admin-section-header">
+                <h2><i class="fa-solid fa-images" style="margin-right:0.5rem;opacity:0.6;"></i> Mis Galerías</h2>
+                <button class="g-btn g-btn-primary" id="create-gallery-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Nueva Galería</span>
+                </button>
+            </div>
+
+            <div class="gallery-cards-grid" id="gallery-list">
+                <!-- Dynamic gallery cards rendered here -->
+            </div>
+        </div>
+
+        <!-- ====== GALLERY EDITOR VIEW ====== -->
+        <div class="editor-container hidden" id="gallery-editor-view">
+            <div class="editor-header">
+                <button class="editor-back-btn" id="editor-back-btn" title="Volver a galerías">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h2 id="editor-title">Editar Galería</h2>
+            </div>
+
+            <!-- Editor Tabs -->
+            <div class="editor-tabs">
+                <button class="editor-tab active" data-tab="settings">
+                    <i class="fa-solid fa-gear"></i> Configuración
+                </button>
+                <button class="editor-tab" data-tab="cover">
+                    <i class="fa-solid fa-image"></i> Portada
+                </button>
+                <button class="editor-tab" data-tab="sections">
+                    <i class="fa-solid fa-folder"></i> Secciones
+                </button>
+                <button class="editor-tab" data-tab="photos">
+                    <i class="fa-solid fa-photo-film"></i> Fotos
+                </button>
+                <button class="editor-tab" data-tab="share">
+                    <i class="fa-solid fa-share-nodes"></i> Compartir
+                </button>
+            </div>
+
+            <!-- Tab: Settings -->
+            <div class="editor-panel active" id="panel-settings">
+                <div class="editor-form-row">
+                    <div class="editor-form-group">
+                        <label for="gallery-title">Título de la galería</label>
+                        <input type="text" id="gallery-title" placeholder="Ej: Boda María & Carlos">
+                    </div>
+                    <div class="editor-form-group">
+                        <label for="gallery-client">Nombre del cliente</label>
+                        <input type="text" id="gallery-client" placeholder="Ej: María López">
+                    </div>
+                </div>
+                <div class="editor-form-row">
+                    <div class="editor-form-group">
+                        <label for="gallery-date">Fecha de la sesión</label>
+                        <input type="date" id="gallery-date">
+                    </div>
+                    <div class="editor-form-group">
+                        <label for="gallery-password">Contraseña de acceso (opcional)</label>
+                        <input type="text" id="gallery-password" placeholder="Dejar vacío = sin contraseña">
+                    </div>
+                </div>
+                <div class="editor-form-group">
+                    <label for="gallery-description">Descripción (opcional)</label>
+                    <textarea id="gallery-description" rows="3"
+                        placeholder="Descripción breve de la sesión..."></textarea>
+                </div>
+                <button class="g-btn g-btn-primary" id="save-settings-btn">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Configuración
+                </button>
+            </div>
+
+            <!-- Tab: Cover -->
+            <div class="editor-panel" id="panel-cover">
+                <div class="editor-form-group">
+                    <label>Estilo de portada</label>
+                    <div class="cover-styles-grid">
+                        <div class="cover-style-option selected" data-style="minimal">
+                            <i class="fa-solid fa-minus"></i>
+                            <span>Minimal</span>
+                        </div>
+                        <div class="cover-style-option" data-style="classic">
+                            <i class="fa-solid fa-align-center"></i>
+                            <span>Classic</span>
+                        </div>
+                        <div class="cover-style-option" data-style="bold">
+                            <i class="fa-solid fa-bold"></i>
+                            <span>Bold</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editor-form-group">
+                    <label>Color de acento</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="accent-color" value="#264CC0">
+                        <div class="color-preview" id="color-preview" style="background:#264CC0;"></div>
+                    </div>
+                </div>
+
+                <div class="editor-form-group">
+                    <label>Foto de portada</label>
+                    <p class="text-muted mb-1" style="font-size:0.8rem;">Selecciona una foto de la galería o sube una
+                        nueva</p>
+                    <div class="upload-zone" id="cover-upload-zone">
+                        <input type="file" accept="image/*" id="cover-file-input">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p>Arrastra una imagen o haz clic para seleccionar</p>
+                        <span class="upload-hint">JPG, PNG — Recomendado: 1920×1080 o mayor</span>
+                    </div>
+                    <div id="cover-preview-container" class="mt-2 hidden">
+                        <img id="cover-preview-img" style="width:100%;max-height:300px;object-fit:cover;border-radius:var(--radius-md);">
+                    </div>
+                </div>
+
+                <button class="g-btn g-btn-primary" id="save-cover-btn">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Portada
+                </button>
+            </div>
+
+            <!-- Tab: Sections -->
+            <div class="editor-panel" id="panel-sections">
+                <p class="text-muted mb-2" style="font-size:0.85rem;">
+                    Organiza las fotos en secciones (ej: Ceremonia, Recepción, Retratos).
+                    Las fotos se asignan a secciones al subirlas.
+                </p>
+
+                <div class="sections-list" id="sections-list">
+                    <!-- Dynamic sections rendered here -->
+                </div>
+
+                <div class="add-section-row">
+                    <input type="text" id="new-section-name" placeholder="Nombre de la nueva sección...">
+                    <button class="g-btn g-btn-primary g-btn-sm" id="add-section-btn">
+                        <i class="fa-solid fa-plus"></i> Agregar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab: Photos -->
+            <div class="editor-panel" id="panel-photos">
+                <!-- Section selector -->
+                <div class="editor-form-group">
+                    <label for="upload-section-select">Subir a sección:</label>
+                    <select id="upload-section-select">
+                        <option value="">— Selecciona una sección —</option>
+                    </select>
+                </div>
+
+                <!-- Upload zone -->
+                <div class="upload-zone" id="photos-upload-zone">
+                    <input type="file" accept="image/*" multiple id="photos-file-input">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>Arrastra tus fotos o haz clic para seleccionar</p>
+                    <span class="upload-hint">JPG, PNG — Subida masiva disponible</span>
+                </div>
+
+                <!-- Upload progress -->
+                <div class="upload-progress-container hidden" id="upload-progress">
+                    <div class="upload-total-progress">
+                        <div class="progress-header">
+                            <span id="upload-count">0 / 0 fotos</span>
+                            <span id="upload-percent">0%</span>
+                        </div>
+                        <div class="upload-total-bar">
+                            <div class="upload-total-bar-fill" id="upload-total-fill"></div>
+                        </div>
+                    </div>
+                    <div id="upload-items-list">
+                        <!-- Individual file progress items -->
+                    </div>
+                </div>
+
+                <!-- Photos grid for current section -->
+                <h3 class="mt-3 mb-2" style="font-size:1rem;color:var(--text-primary);">
+                    Fotos subidas — <span id="section-photo-count">0</span> fotos
+                </h3>
+                <div class="admin-photos-grid" id="admin-photos-grid">
+                    <!-- Dynamic photo thumbnails -->
+                </div>
+            </div>
+
+            <!-- Tab: Share -->
+            <div class="editor-panel" id="panel-share">
+                <div style="text-align:center;padding:2rem 0;">
+                    <i class="fa-solid fa-link" style="font-size:2.5rem;color:var(--primary);margin-bottom:1rem;"></i>
+                    <h3 style="margin-bottom:0.5rem;">Link para tu cliente</h3>
+                    <p class="text-muted mb-2" style="font-size:0.85rem;">Comparte este enlace con tu cliente para que
+                        vea y descargue sus fotos</p>
+
+                    <div class="share-link-box">
+                        <input type="text" id="share-link-input" readonly>
+                        <button class="g-btn g-btn-primary g-btn-sm" id="copy-link-btn">
+                            <i class="fa-solid fa-copy"></i> Copiar
+                        </button>
+                    </div>
+
+                    <div class="mt-3">
+                        <p class="text-muted mb-1" style="font-size:0.8rem;">
+                            <i class="fa-solid fa-lock"></i>
+                            Contraseña: <strong id="share-password-display">Sin contraseña</strong>
+                        </p>
+                        <p class="text-muted" style="font-size:0.8rem;">
+                            <i class="fa-solid fa-images"></i>
+                            Fotos: <strong id="share-photo-count">0</strong>
+                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="g-btn g-btn-secondary" id="preview-gallery-btn">
+                            <i class="fa-solid fa-eye"></i> Vista Previa
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Danger zone -->
+                <div style="border-top:1px solid var(--border-color);padding-top:2rem;margin-top:2rem;">
+                    <h4 style="color:#dc3545;margin-bottom:0.75rem;">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Zona de peligro
+                    </h4>
+                    <p class="text-muted mb-2" style="font-size:0.85rem;">
+                        Eliminar esta galería borrará todas las fotos y datos de forma permanente.
+                    </p>
+                    <button class="g-btn g-btn-danger" id="delete-gallery-btn">
+                        <i class="fa-solid fa-trash"></i> Eliminar Galería
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <!-- /editor-container -->
+    </div>
+    <!-- /admin-dashboard -->
+
+    <!-- Toast Container -->
+    <div class="gallery-toast-container" id="gallery-toast-container"></div>
+
+    <!-- Firebase SDK (Compat for vanilla JS) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

@@ -8,14 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initScrollSpy();
     initScrollAnimations();
-    initPortfolioFilters();
     initModalEvents();
     initContactForm();
     initCvButton();
     initHeroParallax();
+    initScrollTopBtn();
+    initBlobParallax();
 
-    // Renderizar proyectos por defecto
-    renderProjects('all');
+    // Renderizar galerías de fotografía y diseño
+    renderProjects();
 });
 
 /* 1. MODO OSCURO / CLARO
@@ -59,20 +60,43 @@ function initHeaderScroll() {
 function initMobileNav() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
+    const navOverlay = document.getElementById('nav-overlay');
     const navLinks = document.querySelectorAll('.nav-link');
+
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        if (navOverlay) navOverlay.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
 
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            if (navOverlay) navOverlay.classList.toggle('active');
             const isOpen = navMenu.classList.contains('active');
             navToggle.setAttribute('aria-expanded', isOpen);
         });
 
         // Cerrar menú al hacer clic en un enlace
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
+            link.addEventListener('click', () => closeMenu());
+        });
+
+        // Cerrar menú al hacer clic en el overlay
+        if (navOverlay) {
+            navOverlay.addEventListener('click', () => closeMenu());
+        }
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') &&
+                !navMenu.contains(e.target) &&
+                !navToggle.contains(e.target) &&
+                e.target !== navOverlay) {
+                closeMenu();
+            }
         });
     }
 }
@@ -128,25 +152,7 @@ function initScrollAnimations() {
     });
 }
 
-/* 6. FILTROS DE PORTAFOLIO
-   ========================================================================== */
-function initPortfolioFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Cambiar clase activa
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Renderizar proyectos por categoría
-            const category = btn.getAttribute('data-filter');
-            renderProjects(category);
-        });
-    });
-}
-
-/* 7. EVENTOS DE CERRAR MODAL
+/* 6. EVENTOS DE CERRAR MODAL
    ========================================================================== */
 function initModalEvents() {
     const modalClose = document.getElementById('modal-close');
@@ -201,9 +207,8 @@ function initContactForm() {
 function initCvButton() {
     const cvBtn = document.getElementById('cv-btn');
     if (cvBtn) {
-        cvBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            showToast('Iniciando descarga del Currículum Vitae (CV)...', 'success');
+        cvBtn.addEventListener('click', () => {
+            showToast('Descargando Currículum Vitae...', 'success');
         });
     }
 }
@@ -238,7 +243,8 @@ function showToast(message, type = 'success') {
    ========================================================================== */
 function initHeroParallax() {
     const heroPhoto = document.getElementById('hero-photo');
-    if (!heroPhoto) return;
+    const heroDesc = document.getElementById('hero-description');
+    if (!heroPhoto && !heroDesc) return;
 
     let ticking = false;
 
@@ -251,10 +257,21 @@ function initHeroParallax() {
 
                 const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
 
-                // Only apply parallax while hero is visible
-                if (scrollY < heroBottom) {
-                    const offset = scrollY * 0.3;
-                    heroPhoto.style.transform = `translate(-50%, calc(-55% - ${offset}px))`;
+                // Only apply parallax while hero is visible AND on wider screens
+                // Below 992px the elements are in normal flow, so parallax transform breaks layout
+                if (scrollY < heroBottom && window.innerWidth > 992) {
+                    const photoOffset = scrollY * 0.3;
+                    const descOffset = scrollY * 0.15;
+
+                    if (heroPhoto) {
+                        heroPhoto.style.transform = `translate(-50%, calc(-50% - ${photoOffset}px))`;
+                    }
+                    if (heroDesc) {
+                        heroDesc.style.transform = `translateY(-${descOffset}px)`;
+                    }
+                } else if (window.innerWidth <= 992) {
+                    if (heroPhoto) heroPhoto.style.transform = '';
+                    if (heroDesc) heroDesc.style.transform = '';
                 }
 
                 ticking = false;
@@ -262,4 +279,98 @@ function initHeroParallax() {
             ticking = true;
         }
     });
+}
+
+/* 12. BOTÓN VOLVER AL HERO (SCROLL TO TOP)
+   ========================================================================== */
+function initScrollTopBtn() {
+    const btn = document.getElementById('scroll-top-btn');
+    const heroSection = document.getElementById('hero');
+    if (!btn || !heroSection) return;
+
+    window.addEventListener('scroll', () => {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        if (window.scrollY > heroBottom) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+/* 13. PARALLAX DE BLOBS DE FONDO — Movimientos reactivos al scroll
+   ========================================================================== */
+function initBlobParallax() {
+    const blobs = [
+        {
+            el: document.querySelector('.blob-1'),
+            // Blob 1: se va hacia abajo-derecha y encoge
+            xFactor:     0.06,   // desplazamiento X por px de scroll
+            yFactor:     0.14,   // desplazamiento Y por px de scroll
+            scaleBase:   1.0,
+            scaleFactor: -0.00015, // encoge al bajar (negativo)
+            current: { x: 0, y: 0, scale: 1 },
+            target:  { x: 0, y: 0, scale: 1 },
+        },
+        {
+            el: document.querySelector('.blob-2'),
+            // Blob 2: se va hacia arriba-izquierda y crece
+            xFactor:    -0.09,
+            yFactor:    -0.18,
+            scaleBase:   1.0,
+            scaleFactor:  0.0002,  // crece al bajar (positivo)
+            current: { x: 0, y: 0, scale: 1 },
+            target:  { x: 0, y: 0, scale: 1 },
+        },
+        {
+            el: document.querySelector('.blob-3'),
+            // Blob 3: diagonal y pulsa
+            xFactor:     0.12,
+            yFactor:     0.08,
+            scaleBase:   1.0,
+            scaleFactor: -0.0001,
+            current: { x: 0, y: 0, scale: 1 },
+            target:  { x: 0, y: 0, scale: 1 },
+        },
+    ].filter(b => b.el); // ignora blobs que no existan en el DOM
+
+    if (blobs.length === 0) return;
+
+    const LERP = 0.07; // factor de suavizado (0 = sin movimiento, 1 = instantáneo)
+    let scrollY  = 0;
+    let rafId    = null;
+
+    // Actualizar targets en scroll (sin cálculos pesados aquí)
+    window.addEventListener('scroll', () => {
+        scrollY = window.scrollY;
+    }, { passive: true });
+
+    // Loop de animación independiente del evento scroll
+    function tick() {
+        blobs.forEach(blob => {
+            // Calcular targets según scroll actual
+            blob.target.x     = scrollY * blob.xFactor;
+            blob.target.y     = scrollY * blob.yFactor;
+            blob.target.scale = blob.scaleBase + scrollY * blob.scaleFactor;
+
+            // Clamp de escala para que no desaparezca ni crezca demasiado
+            blob.target.scale = Math.max(0.4, Math.min(2.0, blob.target.scale));
+
+            // Interpolar suavemente hacia el target (lerp)
+            blob.current.x     += (blob.target.x     - blob.current.x)     * LERP;
+            blob.current.y     += (blob.target.y     - blob.current.y)     * LERP;
+            blob.current.scale += (blob.target.scale - blob.current.scale) * LERP;
+
+            // Aplicar con propiedades CSS individuales (no colisionan con animation en `transform`)
+            blob.el.style.translate = `${blob.current.x.toFixed(2)}px ${blob.current.y.toFixed(2)}px`;
+            blob.el.style.scale     = blob.current.scale.toFixed(4);
+        });
+
+        rafId = requestAnimationFrame(tick);
+    }
+
+    rafId = requestAnimationFrame(tick);
 }
