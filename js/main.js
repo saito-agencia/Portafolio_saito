@@ -181,7 +181,7 @@ function initContactForm() {
 
     if (!form || !submitBtn) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const originalBtnText = submitBtn.innerHTML;
@@ -191,14 +191,29 @@ function initContactForm() {
             <span>Enviando...</span>
         `;
 
-        // Simulación de envío exitoso tras 1.5 segundos
-        setTimeout(() => {
+        const data = new FormData(e.target);
+
+        try {
+            const response = await fetch(e.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                showToast('¡Mensaje enviado con éxito! Me pondré en contacto pronto.', 'success');
+            } else {
+                showToast('Hubo un problema al enviar tu mensaje. Intenta de nuevo.', 'error');
+            }
+        } catch (error) {
+            showToast('Ocurrió un error de red. Intenta de nuevo.', 'error');
+        } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnText;
-
-            showToast('¡Mensaje enviado con éxito! Me pondré en contacto pronto.', 'success');
-            form.reset();
-        }, 1500);
+        }
     });
 }
 
