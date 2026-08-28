@@ -94,3 +94,16 @@ function initCoverCarousels() {
         }, 3000); // Change every 3 seconds
     });
 }
+
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (modal) {
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Stop any playing videos if present
+        const videos = modal.querySelectorAll('video');
+        videos.forEach(v => v.pause());
+    }
+}
