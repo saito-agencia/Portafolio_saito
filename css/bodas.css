@@ -195,3 +195,25 @@ body.bodas-page[data-theme="dark"] {
     max-width: 600px;
     margin: 0 auto;
 }
+
+/* Replicating the fixed social buttons on the left with Bodas palette */
+.bodas-page .hero-author-name {
+    color: var(--text-primary) !important; /* #513627 */
+    font-weight: 400;
+}
+
+.bodas-page .hero-social-link {
+    border: 1px solid rgba(81, 54, 39, 0.2) !important;
+    background: rgba(255, 253, 244, 0.6) !important; /* Cream semi-transparent */
+}
+
+.bodas-page .hero-social-link:hover {
+    border-color: var(--primary) !important; /* #513627 */
+    background: rgba(81, 54, 39, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+.bodas-page .hero-social-link img {
+    /* Apply filter to render images in chocolate color #513627 */
+    filter: brightness(0) saturate(100%) invert(21%) sepia(21%) saturate(1476%) hue-rotate(343deg) brightness(93%) contrast(92%) !important;
+}
