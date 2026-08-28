@@ -798,18 +798,18 @@ const bodasData = [
         type: 'design-showcase',
         isFramed: true,
         coverCarousel: [
-            'assets/images/bodas/carrusel/carrusel 1.webp',
-            'assets/images/bodas/carrusel/carrusel 2.webp',
-            'assets/images/bodas/carrusel/carrusel 3.webp',
-            'assets/images/bodas/carrusel/carrusel 4.webp',
-            'assets/images/bodas/carrusel/carrusel 5.webp'
+            'assets/images/Bodas/carrusel/carrusel 1.webp',
+            'assets/images/Bodas/carrusel/carrusel 2.webp',
+            'assets/images/Bodas/carrusel/carrusel 3.webp',
+            'assets/images/Bodas/carrusel/carrusel 4.webp',
+            'assets/images/Bodas/carrusel/carrusel 5.webp'
         ],
         carousel: [
-            'assets/images/bodas/carrusel/carrusel 1.webp',
-            'assets/images/bodas/carrusel/carrusel 2.webp',
-            'assets/images/bodas/carrusel/carrusel 3.webp',
-            'assets/images/bodas/carrusel/carrusel 4.webp',
-            'assets/images/bodas/carrusel/carrusel 5.webp'
+            'assets/images/Bodas/carrusel/carrusel 1.webp',
+            'assets/images/Bodas/carrusel/carrusel 2.webp',
+            'assets/images/Bodas/carrusel/carrusel 3.webp',
+            'assets/images/Bodas/carrusel/carrusel 4.webp',
+            'assets/images/Bodas/carrusel/carrusel 5.webp'
         ],
         elements: [],
         longDescription: 'Capturando momentos honestos, sonrisas espontáneas y detalles únicos en cada boda. Un enfoque documental mezclado con dirección artística para lograr recuerdos atemporales.'
