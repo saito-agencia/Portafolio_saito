@@ -272,14 +272,29 @@ body.bodas-page[data-theme="dark"] {
 }
 
 /* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+    .hero-bodas {
+        height: auto !important;
+        min-height: 100vh;
+        padding: 7rem 1.25rem 3rem !important;
+        justify-content: flex-start !important;
+    }
+    
     .hero-title-overlay {
         width: 85% !important;
+        max-width: 480px;
+        flex-shrink: 0;
+        margin-bottom: 2rem;
     }
 }
 
 @media (max-width: 480px) {
+    .hero-bodas {
+        padding: 6.5rem 0.75rem 2.5rem !important;
+    }
+    
     .hero-title-overlay {
-        width: 92% !important;
+        width: 95% !important; /* Spans almost the full screen width, matching the button container */
+        max-width: 360px;
     }
 }
