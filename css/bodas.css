@@ -217,3 +217,56 @@ body.bodas-page[data-theme="dark"] {
     /* Apply filter to render images in chocolate color #513627 */
     filter: brightness(0) saturate(100%) invert(21%) sepia(21%) saturate(1476%) hue-rotate(343deg) brightness(93%) contrast(92%) !important;
 }
+
+/* Replicating the description block on the right with Bodas palette */
+.bodas-page .hero-description-block {
+    background: rgba(255, 253, 244, 0.4) !important; /* Cream glass with higher transparency */
+    border: 1px solid rgba(81, 54, 39, 0.25) !important;
+    box-shadow: 0 10px 30px -10px rgba(81, 54, 39, 0.2) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.bodas-page .hero-description-block p {
+    color: #513627 !important;
+    font-weight: 300;
+}
+
+.bodas-page .hero-description-block p strong {
+    font-weight: 700;
+    color: #513627 !important;
+}
+
+.bodas-page .hero-description-block p em {
+    font-style: normal;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(81, 54, 39, 0.5) !important;
+}
+
+.bodas-page .hero-description-block .btn-primary {
+    background: #513627 !important; /* Chocolate button */
+    color: #FFFDF4 !important; /* Cream text */
+    font-size: 0.78rem;
+    padding: 0.55rem 1.1rem;
+    box-shadow: 0 4px 15px rgba(81, 54, 39, 0.2) !important;
+    border: none;
+}
+
+.bodas-page .hero-description-block .btn-primary:hover {
+    background: #3d281d !important;
+    box-shadow: 0 6px 20px rgba(81, 54, 39, 0.3) !important;
+}
+
+.bodas-page .hero-description-block .btn-secondary {
+    border: 1px solid rgba(81, 54, 39, 0.4) !important;
+    color: #513627 !important;
+    font-size: 0.78rem;
+    padding: 0.55rem 1.1rem;
+    background: rgba(81, 54, 39, 0.04) !important;
+}
+
+.bodas-page .hero-description-block .btn-secondary:hover {
+    background: rgba(81, 54, 39, 0.1) !important;
+    border-color: #513627 !important;
+}

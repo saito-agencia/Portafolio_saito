@@ -226,6 +226,13 @@ function initCvButton() {
             showToast('Descargando Currículum Vitae...', 'success');
         });
     }
+
+    const paquetesBtn = document.getElementById('paquetes-btn');
+    if (paquetesBtn) {
+        paquetesBtn.addEventListener('click', () => {
+            showToast('Descargando Paquetes Boda 2026...', 'success');
+        });
+    }
 }
 
 /* 10. HELPER NOTIFICACIONES TOAST
