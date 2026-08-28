@@ -837,6 +837,20 @@ function initCoverCarousels() {
             slides[currentIdx].classList.add('active');
         }, 3000);
     });
+
+    // Hero carousel transition
+    const heroCarousel = document.querySelector('.hero-carousel');
+    if (heroCarousel) {
+        const slides = heroCarousel.querySelectorAll('.hero-slide');
+        let currentIdx = 0;
+        if (slides.length > 1) {
+            setInterval(() => {
+                slides[currentIdx].classList.remove('active');
+                currentIdx = (currentIdx + 1) % slides.length;
+                slides[currentIdx].classList.add('active');
+            }, 4000);
+        }
+    }
 }
 
 /* ---------- OVERLAY PARA ZOOM DE IMÁGENES DE DISEÑO ---------- */
