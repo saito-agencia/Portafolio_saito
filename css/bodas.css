@@ -78,3 +78,35 @@ body.bodas-page[data-theme="dark"] {
 .bodas-page .logo-img {
     filter: brightness(0) saturate(100%) invert(21%) sepia(21%) saturate(1476%) hue-rotate(343deg) brightness(93%) contrast(92%); /* #513627 */
 }
+
+/* Estilos para el Carrusel y Marcos en Tarjetas de Bodas */
+.framed-card .project-img-container {
+    border: 8px solid #FFFDF4;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(81, 54, 39, 0.1);
+    background-color: #FFFDF4;
+}
+
+.cover-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cover-carousel .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+}
+
+.cover-carousel .carousel-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
