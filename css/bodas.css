@@ -270,3 +270,16 @@ body.bodas-page[data-theme="dark"] {
     background: rgba(81, 54, 39, 0.1) !important;
     border-color: #513627 !important;
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hero-title-overlay {
+        width: 85% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-overlay {
+        width: 92% !important;
+    }
+}
