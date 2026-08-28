@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saito | Portafolio de Bodas</title>
+    <meta name="description" content="Portafolio de bodas de René Saito. Capturando momentos inolvidables.">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bodas.css">
+</head>
+
+<body class="bodas-page" data-theme="light">
+    <!-- Background Decorator Blobs -->
+    <div class="bg-glow blob-1" style="background: rgba(255, 253, 244, 0.4);"></div>
+    <div class="bg-glow blob-2" style="background: rgba(140, 107, 93, 0.2);"></div>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-bar-glass">
+                <a href="index.html" class="logo nav-logo">
+                    <img src="assets/images/LOGO SAITO CLARO.png" alt="Saito Logo" class="logo-img">
+                </a>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="index.html#toolkit" class="nav-link">Tool Kit</a></li>
+                        <li><a href="index.html#photography" class="nav-link">Proyectos</a></li>
+                        <li><a href="bodas.html" class="nav-link active">Bodas</a></li>
+                        <li><a href="gallery.html" class="nav-link" target="_blank">Galerías</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars icon-bars"></i>
+                        <i class="fa-solid fa-xmark icon-close"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bodas section" id="hero">
+            <div class="hero-wrapper">
+                <h1 class="hero-title-interactive">Bodas</h1>
+                <p class="hero-subtitle">Capturando la esencia y la magia de los momentos más inolvidables de tu gran día, con una mirada elegante y atemporal.</p>
+            </div>
+        </section>
+
+        <!-- Wedding Portfolio Grid -->
+        <section class="section photography" id="portfolio-bodas">
+            <div class="container">
+                <div class="section-header center">
+                    <h2 class="section-title" style="font-family: var(--font-subheading);">Portafolio de Bodas</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="projects-grid" id="bodas-grid">
+                    <!-- Dynamic Projects injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contacto" id="contacto">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-subtitle">¿Tienes un proyecto en mente?</span>
+                    <h2 class="section-title" style="font-family: var(--font-subheading);">Ponte en Contacto</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info glass-card fade-in">
+                        <h3>¡Hablemos!</h3>
+                        <p>Escríbeme para cotizar la cobertura de tu boda y apartar la fecha de tu evento.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="icon-box">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="detail-label">Email</span>
+                                    <a href="mailto:saito.agencia.contacto@gmail.com" class="detail-value">saito.agencia.contacto@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-detail-item">
+                                <div class="icon-box">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="detail-label">WhatsApp</span>
+                                    <a href="https://wa.me/qr/AIB3PY3H74K6I1" target="_blank" rel="noopener" class="detail-value">Chat directo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="https://formspree.io/f/myeygvvg" method="POST" class="contact-form glass-card fade-in" id="contact-form">
+                        <h3>Envíame un mensaje</h3>
+
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Fecha de la Boda (Aprox)</label>
+                            <input type="text" id="subject" name="subject" placeholder="Mes / Año" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Cuéntame un poco sobre su gran día..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                            <span>Enviar Mensaje</span>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal Dialog -->
+    <div class="modal" id="project-modal" aria-hidden="true">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <button class="modal-project-nav modal-project-prev" id="modal-project-prev" aria-label="Proyecto Anterior" style="display: none;">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="modal-project-nav modal-project-next" id="modal-project-next" aria-label="Siguiente Proyecto" style="display: none;">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic Content filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#hero" class="logo">
+                    <img src="assets/images/LOGO SAITO CLARO.png" alt="Saito Logo" class="logo-img">
+                </a>
+                <p>© 2026 René Saito. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#hero" class="back-to-top" aria-label="Volver arriba">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/projects.js"></script>
+    <script src="js/main.js"></script>
+    <button class="scroll-top-btn" id="scroll-top-btn" aria-label="volver al inicio">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+</body>
+
+</html>

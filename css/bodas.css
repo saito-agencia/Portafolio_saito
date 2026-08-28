@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Pinyon Script';
+    src: url('../assets/PinyonScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GFS Didot';
+    src: url('../assets/GFSDidot-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Override global theme colors for Bodas page */
+body.bodas-page[data-theme="light"],
+body.bodas-page[data-theme="dark"] {
+    --bg-primary: #FFFDF4;
+    --bg-secondary: #f7f3e1;
+    --card-bg: #FFFDF4;
+    --card-hover-bg: #FFFDF4;
+    --text-primary: #513627;
+    --text-secondary: #7a5845;
+    --text-muted: #9e7f6e;
+    --primary: #513627;
+    --primary-hover: #3d281d;
+    --secondary: #8c6b5d;
+    --border-color: rgba(81, 54, 39, 0.1);
+    --border-hover: rgba(81, 54, 39, 0.35);
+    
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.bodas-page {
+    /* Bodas specific typography */
+    --font-heading: 'Pinyon Script', cursive;
+    --font-subheading: 'GFS Didot', serif;
+}
+
+.hero-bodas {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../assets/images/JJ_PREVIEW.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-bodas .hero-wrapper {
+    display: none; /* Hide HTML title because the background image has text on it */
+}
+
+.bodas-page .logo-img {
+    filter: brightness(0) saturate(100%) invert(21%) sepia(21%) saturate(1476%) hue-rotate(343deg) brightness(93%) contrast(92%); /* #513627 */
+}
+
+/* Frame and Carousel style for project card */
+.framed-card .gallery-img-wrapper {
+    border: 12px solid #FFFDF4;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(81, 54, 39, 0.15);
+    background-color: #FFFDF4;
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.framed-card:hover .gallery-img-wrapper {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(81, 54, 39, 0.25);
+}
+
+.cover-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4/5; /* Standard crop for wedding photography */
+    overflow: hidden;
+}
+
+.cover-carousel .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+}
+
+.cover-carousel .carousel-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Ensure bodas grid looks elegant */
+#bodas-grid {
+    max-width: 600px;
+    margin: 0 auto;
+}

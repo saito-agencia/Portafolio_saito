@@ -207,14 +207,14 @@ const designData = [
         title: 'Little Friends Vet',
         image: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
         category: 'Social Media',
-        description: 'Homogeneización de la imagen corporativa en redes sociales y unificación de línea gráfica para Little Friends vet, abarcando desde la estandarización visual hasta el desarrollo de contenido digital.',
+        description: 'Creación de marca y diseño visual para la clínica veterinaria Little Friends Vet.',
         type: 'design-showcase',
-        cover: '',
+        cover: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
         carousel: [],
         elements: [
             'assets/images/little frients vet.png'
         ],
-        longDescription: 'Proyecto de homogeneización de marca y estrategia de comunicación visual para las redes sociales de la clínica veterinaria Little Friends Vet. El trabajo se enfocó en consolidar la coherencia visual del centro veterinario a través de la unificación de sus líneas gráficas y la estandarización de sus activos digitales.<br><br>Se desarrollaron plantillas, elementos gráficos personalizados y un plan de creación de contenido enfocado en transmitir una imagen sólida, confiable y cercana. Esto permitió alinear la narrativa visual de la veterinaria en sus canales digitales.'
+        longDescription: 'Este proyecto de branding se centró en desarrollar una identidad amigable y profesional para Little Friends Vet, transmitiendo confianza y calidez tanto en su logotipo como en los materiales gráficos secundarios.'
     },
     {
         id: 'design-4',
@@ -291,12 +291,24 @@ function createMediaHTML(src, altText = '', className = '', isCover = false) {
 function createGalleryItem(item, index) {
     const article = document.createElement('article');
     article.className = 'gallery-item fade-in visible';
+    if (item.isFramed) {
+        article.classList.add('framed-card');
+    }
     article.style.animationDelay = `${index * 0.08}s`;
 
     const hasGallery = item.gallery && item.gallery.length > 1;
     const isDesignShowcase = item.type === 'design-showcase';
 
-    const mediaHTML = createMediaHTML(item.image, item.title, 'gallery-img', true);
+    let mediaHTML = '';
+    if (item.coverCarousel) {
+        mediaHTML = `
+            <div class="cover-carousel">
+                ${item.coverCarousel.map((img, i) => `<img src="${img}" class="carousel-slide ${i === 0 ? 'active' : ''}" alt="${item.title}">`).join('')}
+            </div>
+        `;
+    } else {
+        mediaHTML = createMediaHTML(item.image, item.title, 'gallery-img', true);
+    }
 
     article.innerHTML = `
         <div class="gallery-img-wrapper">
@@ -777,9 +789,54 @@ function closeProjectModal() {
 
 /* ---------- INIT ---------- */
 
+const bodasData = [
+    {
+        id: 'bodas-1',
+        title: 'Wedding Photography',
+        category: 'Bodas',
+        description: 'Fotografía documental y artística de bodas. Capturando las emociones más puras y espontáneas de tu gran día.',
+        type: 'design-showcase',
+        isFramed: true,
+        coverCarousel: [
+            'assets/images/bodas/carrusel/carrusel 1.webp',
+            'assets/images/bodas/carrusel/carrusel 2.webp',
+            'assets/images/bodas/carrusel/carrusel 3.webp',
+            'assets/images/bodas/carrusel/carrusel 4.webp',
+            'assets/images/bodas/carrusel/carrusel 5.webp'
+        ],
+        carousel: [
+            'assets/images/bodas/carrusel/carrusel 1.webp',
+            'assets/images/bodas/carrusel/carrusel 2.webp',
+            'assets/images/bodas/carrusel/carrusel 3.webp',
+            'assets/images/bodas/carrusel/carrusel 4.webp',
+            'assets/images/bodas/carrusel/carrusel 5.webp'
+        ],
+        elements: [],
+        longDescription: 'Capturando momentos honestos, sonrisas espontáneas y detalles únicos en cada boda. Un enfoque documental mezclado con dirección artística para lograr recuerdos atemporales.'
+    }
+];
+
 function renderProjects() {
     renderGallery(photographyData, 'photography-grid');
     renderGallery(designData, 'design-grid');
+    renderGallery(bodasData, 'bodas-grid');
+    initCoverCarousels();
+}
+
+function initCoverCarousels() {
+    const carousels = document.querySelectorAll('.cover-carousel');
+    carousels.forEach(carousel => {
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        let currentIdx = 0;
+
+        if (slides.length <= 1) return;
+
+        setInterval(() => {
+            slides[currentIdx].classList.remove('active');
+            currentIdx = (currentIdx + 1) % slides.length;
+            slides[currentIdx].classList.add('active');
+        }, 3000);
+    });
 }
 
 /* ---------- OVERLAY PARA ZOOM DE IMÁGENES DE DISEÑO ---------- */
