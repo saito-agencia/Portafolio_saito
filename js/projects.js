@@ -384,24 +384,41 @@ function openDesignModal(item) {
         `;
     }
 
-    // --- Carrusel horizontal ---
+    // --- Carrusel horizontal o Cuadrícula de fotos (para Bodas) ---
     if (item.carousel && item.carousel.length > 0) {
-        html += `
-            <div class="design-carousel-section">
-                <p class="design-carousel-label">Mockups y diapositivas</p>
-                <div class="design-carousel-track-wrapper" id="design-carousel-wrapper">
-                    <div class="design-carousel-track">
+        if (item.category === 'Bodas') {
+            html += `
+                <div class="design-grid-section">
+                    <p class="design-carousel-label">Fotografías del Proyecto</p>
+                    <div class="design-photo-grid">
                         ${item.carousel.map((src, i) => {
-            return `
-                                <div class="design-carousel-item">
+                return `
+                                <div class="design-grid-item">
                                     ${createMediaHTML(src, `${item.title} ${i + 1}`, '')}
                                 </div>
                             `;
-        }).join('')}
+            }).join('')}
                     </div>
                 </div>
-            </div>
-        `;
+            `;
+        } else {
+            html += `
+                <div class="design-carousel-section">
+                    <p class="design-carousel-label">Mockups y diapositivas</p>
+                    <div class="design-carousel-track-wrapper" id="design-carousel-wrapper">
+                        <div class="design-carousel-track">
+                            ${item.carousel.map((src, i) => {
+                return `
+                                    <div class="design-carousel-item">
+                                        ${createMediaHTML(src, `${item.title} ${i + 1}`, '')}
+                                    </div>
+                                `;
+            }).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
     }
 
     // --- Elementos (en orden numérico, completos) ---
@@ -446,11 +463,16 @@ function openDesignModal(item) {
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    // --- Configuración de Zoom simple para imágenes de carrusel ---
-    const carouselMedia = modalBody.querySelectorAll('.design-carousel-item img, .design-carousel-item video');
+    // --- Configuración de Zoom simple para imágenes de carrusel o cuadrícula ---
+    const carouselMedia = modalBody.querySelectorAll('.design-carousel-item img, .design-carousel-item video, .design-grid-item img, .design-grid-item video');
     carouselMedia.forEach(media => {
         if (media.tagName.toLowerCase() === 'iframe') return;
         media.style.cursor = 'pointer';
+
+        // Prevent native browser dragging of images, which blocks click events
+        media.setAttribute('draggable', 'false');
+        media.addEventListener('dragstart', (e) => e.preventDefault());
+
         media.addEventListener('click', (e) => {
             e.stopPropagation();
             openZoomOverlay(media.src);
@@ -480,9 +502,12 @@ function openDesignModal(item) {
         });
         wrapper.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            e.preventDefault();
             const x = e.pageX - wrapper.offsetLeft;
             const walk = (x - startX) * 1.5;
+            // Introduce a movement threshold (5px) to prevent tiny mouse shivers from cancelling click events
+            if (Math.abs(walk) < 5) return;
+
+            e.preventDefault();
             wrapper.scrollLeft = scrollLeft - walk;
         });
     }
@@ -792,27 +817,63 @@ function closeProjectModal() {
 const bodasData = [
     {
         id: 'bodas-1',
-        title: 'Wedding Photography',
+        title: 'Cobertura de Boda',
         category: 'Bodas',
         description: 'Fotografía documental y artística de bodas. Capturando las emociones más puras y espontáneas de tu gran día.',
         type: 'design-showcase',
         isFramed: true,
         coverCarousel: [
-            'assets/images/Bodas/carrusel/carrusel 1.webp',
-            'assets/images/Bodas/carrusel/carrusel 2.webp',
-            'assets/images/Bodas/carrusel/carrusel 3.webp',
-            'assets/images/Bodas/carrusel/carrusel 4.webp',
-            'assets/images/Bodas/carrusel/carrusel 5.webp'
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (2).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (3).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (4).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (5).jpg'
         ],
         carousel: [
-            'assets/images/Bodas/carrusel/carrusel 1.webp',
-            'assets/images/Bodas/carrusel/carrusel 2.webp',
-            'assets/images/Bodas/carrusel/carrusel 3.webp',
-            'assets/images/Bodas/carrusel/carrusel 4.webp',
-            'assets/images/Bodas/carrusel/carrusel 5.webp'
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (1).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (2).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (3).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (4).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (5).jpg',
+            'assets/images/Bodas/port boda/1Preview_JyM-53_8_11zon (6).jpg',
+            'assets/images/Bodas/port boda/Boda O & J-251_12_11zon.jpg',
+            'assets/images/Bodas/port boda/Boda O & J-74_15_11zon.jpg',
+            'assets/images/Bodas/port boda/Boda O & J-86_13_11zon.jpg',
+            'assets/images/Bodas/port boda/Wedding_Jimena&Jorge-81_1_11zon.jpg',
+            'assets/images/Bodas/port boda/Wedding_Jimena&Jorge-511_3_11zon.jpg',
+            'assets/images/Bodas/port boda/Wedding_Jimena&Jorge-650_2_11zon.jpg'
         ],
         elements: [],
         longDescription: 'Capturando momentos honestos, sonrisas espontáneas y detalles únicos en cada boda. Un enfoque documental mezclado con dirección artística para lograr recuerdos atemporales.'
+    },
+    {
+        id: 'bodas-2',
+        title: 'Sesión Preboda',
+        category: 'Bodas',
+        description: 'Sesión fotográfica casual y divertida. Conectando y capturando su complicidad en un ambiente relajado antes de la gran boda.',
+        type: 'design-showcase',
+        isFramed: true,
+        coverCarousel: [
+            'assets/images/Bodas/pre boda/Jessy_Miguel_Save_The_Date-72.jpg',
+            'assets/images/Bodas/pre boda/JIMENA_JORGE-23_8_11zon.jpg',
+            'assets/images/Bodas/pre boda/Jessy_Miguel_Save_The_Date-77.jpg',
+            'assets/images/Bodas/pre boda/2IMG_0299_7_11zon (1).jpg'
+        ],
+        carousel: [
+            'assets/images/Bodas/pre boda/Jessy_Miguel_Save_The_Date-72.jpg',
+            'assets/images/Bodas/pre boda/Jessy_Miguel_Save_The_Date-77.jpg',
+            'assets/images/Bodas/pre boda/1 Jessy_Miguel_Save_The_Date-109_13_11zon (1).jpg',
+            'assets/images/Bodas/pre boda/1 Jessy_Miguel_Save_The_Date-109_13_11zon (2).jpg',
+            'assets/images/Bodas/pre boda/1 Jessy_Miguel_Save_The_Date-109_13_11zon (3).jpg',
+            'assets/images/Bodas/pre boda/1 Jessy_Miguel_Save_The_Date-109_13_11zon (4).jpg',
+            'assets/images/Bodas/pre boda/2IMG_0299_7_11zon (1).jpg',
+            'assets/images/Bodas/pre boda/2IMG_0299_7_11zon (2).jpg',
+            'assets/images/Bodas/pre boda/2IMG_0299_7_11zon (3).jpg',
+            'assets/images/Bodas/pre boda/JIMENA_JORGE-23_8_11zon.jpg',
+            'assets/images/Bodas/pre boda/JIMENA_JORGE-70_10_11zon.jpg',
+            'assets/images/Bodas/pre boda/JIMENA_JORGE-91_11_11zon.jpg'
+        ],
+        elements: [],
+        longDescription: 'Una sesión diseñada para que los novios se relajen frente a la cámara, disfruten de un momento juntos y capturen retratos espontáneos y auténticos antes del gran día de la boda.'
     }
 ];
 

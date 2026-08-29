@@ -800,9 +800,24 @@ h2.hero-title-interactive {
     object-fit: contain;
 }
 
+.hero-social-link i {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero-social-link:hover i {
+    color: var(--primary) !important;
+    transform: scale(1.1);
+}
+
 /* Light mode: invert social icons so white icons show on light bg */
 [data-theme="light"] .hero-social-link img {
     filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(1764%) hue-rotate(221deg) brightness(87%) contrast(92%);
+}
+
+[data-theme="light"] .hero-social-link i {
+    color: var(--primary) !important;
 }
 
 
@@ -2414,4 +2429,11 @@ h2.hero-title-interactive {
     max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
+}
+
+/* Custom override for Weddings CTA button on home page to hover to brown */
+.photography-cta .btn-secondary:hover {
+    border-color: #513627 !important;
+    background: rgba(81, 54, 39, 0.1) !important;
+    color: #513627 !important;
 }
