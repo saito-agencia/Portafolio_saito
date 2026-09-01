@@ -105,8 +105,8 @@ body.bodas-page[data-theme="dark"] {
     width: 100%;
     height: auto;
     object-fit: contain;
-    /* Soft shadow to lift it slightly */
-    filter: drop-shadow(0 4px 15px rgba(81, 54, 39, 0.12));
+    /* Apply filter to render title in brown #513627 and add soft shadow */
+    filter: brightness(0) saturate(100%) invert(21%) sepia(21%) saturate(1476%) hue-rotate(343deg) brightness(93%) contrast(92%) drop-shadow(0 4px 15px rgba(81, 54, 39, 0.12));
 }
 
 @keyframes fadeInScale {
@@ -124,6 +124,11 @@ body.bodas-page[data-theme="dark"] {
 .bodas-page .logo-img {
     filter: brightness(0) saturate(100%) invert(98%) sepia(3%) saturate(1312%) hue-rotate(314deg) brightness(105%) contrast(100%);
     /* #FFFDF4 */
+}
+
+.bodas-page .footer .logo-img {
+    filter: brightness(0) saturate(100%) invert(21%) sepia(21%) saturate(1476%) hue-rotate(343deg) brightness(93%) contrast(92%) !important;
+    /* Brown #513627 */
 }
 
 /* Header and Navigation Bar Overrides for Dark Identity */
