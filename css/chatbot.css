@@ -1,0 +1,534 @@
+/* ==========================================================================
+   SAITOBOT - ASISTENTE CHATBOT FLOTANTE
+   Sistema de diseño coherente con el portafolio de René Saito
+   ========================================================================== */
+
+/* 1. CONTENEDOR FLOTANTE Y BOTÓN DISPARADOR
+   ========================================================================== */
+.saito-chat-widget {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    font-family: var(--font-main, 'Plus Jakarta Sans', sans-serif);
+}
+
+/* Botón flotante */
+.saito-chat-trigger {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 30px rgba(38, 76, 192, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.4rem;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
+    outline: none;
+}
+
+.bodas-page .saito-chat-trigger {
+    background: var(--primary);
+    box-shadow: 0 8px 30px rgba(81, 54, 39, 0.35);
+}
+
+.saito-chat-trigger:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 12px 35px rgba(38, 76, 192, 0.45);
+}
+
+.bodas-page .saito-chat-trigger:hover {
+    box-shadow: 0 12px 35px rgba(81, 54, 39, 0.45);
+}
+
+.saito-chat-trigger .trigger-icon-open,
+.saito-chat-trigger .trigger-icon-close {
+    position: absolute;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.saito-chat-trigger .trigger-icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+}
+
+.saito-chat-widget.active .saito-chat-trigger .trigger-icon-open {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+}
+
+.saito-chat-widget.active .saito-chat-trigger .trigger-icon-close {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Badge de notificación / pulso */
+.saito-chat-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 3px var(--bg-primary);
+    animation: saitoPulse 2.5s infinite;
+}
+
+.saito-chat-badge.hidden {
+    display: none;
+}
+
+@keyframes saitoPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6), 0 0 0 2px var(--bg-primary);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0), 0 0 0 2px var(--bg-primary);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0), 0 0 0 2px var(--bg-primary);
+    }
+}
+
+/* Tooltip de bienvenida flotante */
+.saito-chat-tooltip {
+    position: absolute;
+    right: 68px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-md, 16px);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    white-space: nowrap;
+    font-size: 0.82rem;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.saito-chat-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid var(--card-bg);
+}
+
+.saito-chat-widget.active .saito-chat-tooltip,
+.saito-chat-tooltip.dismissed {
+    opacity: 0;
+    transform: translateY(-50%) translateX(10px);
+    pointer-events: none;
+}
+
+/* 2. VENTANA PRINCIPAL DEL CHAT
+   ========================================================================== */
+.saito-chat-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 380px;
+    max-width: calc(100vw - 2.5rem);
+    height: 540px;
+    max-height: calc(100vh - 120px);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg, 24px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.2), 0 0 30px rgba(38, 76, 192, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    transform-origin: bottom right;
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.35s ease;
+    z-index: 10;
+}
+
+.saito-chat-widget.active .saito-chat-window {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 3. CABECERA DEL CHAT
+   ========================================================================== */
+.saito-chat-header {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.bodas-page .saito-chat-header {
+    background: var(--primary);
+}
+
+.saito-chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.saito-chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.saito-chat-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.saito-status-dot {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    background: #10b981;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+}
+
+.saito-chat-title h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.saito-chat-title span {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.saito-chat-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.saito-chat-btn-icon {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.saito-chat-btn-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* 4. CUERPO DE MENSAJES
+   ========================================================================== */
+.saito-chat-body {
+    flex: 1;
+    padding: 1.25rem 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    scroll-behavior: smooth;
+    background: var(--bg-primary);
+}
+
+/* Scrollbar estilizada */
+.saito-chat-body::-webkit-scrollbar {
+    width: 5px;
+}
+.saito-chat-body::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+/* Mensajes */
+.saito-msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 84%;
+    animation: saitoMsgIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes saitoMsgIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.saito-msg-bot {
+    align-self: flex-start;
+}
+
+.saito-msg-user {
+    align-self: flex-end;
+}
+
+.saito-msg-bubble {
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+.saito-msg-bot .saito-msg-bubble {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-top-left-radius: 4px;
+}
+
+.saito-msg-user .saito-msg-bubble {
+    background: var(--primary);
+    color: #ffffff;
+    border-top-right-radius: 4px;
+}
+
+.bodas-page .saito-msg-user .saito-msg-bubble {
+    background: var(--primary);
+    color: #FFFDF4;
+}
+
+.saito-msg-time {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+    padding: 0 4px;
+}
+
+.saito-msg-user .saito-msg-time {
+    align-self: flex-end;
+}
+
+/* Indicador de escribiendo */
+.saito-typing-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    border-top-left-radius: 4px;
+    align-self: flex-start;
+    animation: saitoMsgIn 0.25s ease;
+}
+
+.saito-typing-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    animation: saitoBounce 1.4s infinite ease-in-out both;
+}
+
+.saito-typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.saito-typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes saitoBounce {
+    0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+/* 5. OPCIONES RÁPIDAS (QUICK REPLIES)
+   ========================================================================== */
+.saito-quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+}
+
+.saito-chip-btn {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full, 9999px);
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.saito-chip-btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 12px rgba(38, 76, 192, 0.25);
+}
+
+.bodas-page .saito-chip-btn:hover {
+    color: #FFFDF4;
+    box-shadow: 0 4px 12px rgba(81, 54, 39, 0.25);
+}
+
+.saito-chip-btn.whatsapp-action {
+    background: #25D366;
+    color: #ffffff;
+    border-color: #25D366;
+}
+
+.saito-chip-btn.whatsapp-action:hover {
+    background: #20BA5A;
+    border-color: #20BA5A;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+}
+
+/* 6. PIE / INPUT DE TEXTO
+   ========================================================================== */
+.saito-chat-footer {
+    padding: 0.75rem 1rem;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+.saito-chat-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full, 9999px);
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.saito-chat-form:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(38, 76, 192, 0.15);
+}
+
+.saito-chat-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    font-family: inherit;
+    padding: 0.4rem 0;
+}
+
+.saito-chat-input::placeholder {
+    color: var(--text-muted);
+}
+
+.saito-chat-submit {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.bodas-page .saito-chat-submit {
+    color: #FFFDF4;
+}
+
+.saito-chat-submit:hover {
+    transform: scale(1.06);
+    background: var(--primary-hover, #1E3DA0);
+}
+
+.saito-chat-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 7. ADAPTACIÓN RESPONSIVA (MÓVILES)
+   ========================================================================== */
+@media (max-width: 576px) {
+    .saito-chat-widget {
+        bottom: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .saito-chat-trigger {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .saito-chat-window {
+        bottom: 64px;
+        right: 0;
+        width: calc(100vw - 2.5rem);
+        height: 490px;
+        max-height: calc(100vh - 100px);
+        border-radius: 20px;
+    }
+
+    .saito-chat-tooltip {
+        display: none;
+    }
+}
