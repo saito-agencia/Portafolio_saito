@@ -9,7 +9,7 @@
     'use strict';
 
     // Constantes de configuración
-    const WHATSAPP_BASE_URL = 'https://wa.me/qr/AIB3PY3H74K6I1';
+    const WHATSAPP_BASE_URL = 'https://wa.me/5219612711630';
     const STORAGE_KEY = 'saito_chat_history_v1';
     const STORAGE_STATUS_KEY = 'saito_chat_opened';
 
