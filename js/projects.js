@@ -7,10 +7,10 @@
 const photographyData = [
     {
         id: 'photo-1',
-        title: 'Sesión Odontólogas',
+        title: 'Sesión Odontólogas / Dentists Session',
         image: 'assets/images/Sesión odonto/Odonto_session-35.jpg',
-        category: 'Retrato',
-        description: 'Sesión fotográfica profesional para odontólogas, con la finalidad de que cuenten con fotografías profesionales de su carrera. Retratos individuales y grupales con una estética limpia y profesional.',
+        category: 'Retrato / Portrait',
+        description: 'Sesión fotográfica profesional para odontólogas, con la finalidad de que cuenten con fotografías profesionales de su carrera. Retratos individuales y grupales con una estética limpia y profesional. / Professional photo session for dentists, providing clean and professional individual and group portraits for their medical careers.',
         gallery: [
             'assets/images/Sesión odonto/Odonto_session-35.jpg',
             'assets/images/Sesión odonto/Odonto_session-3.jpg',
@@ -31,8 +31,8 @@ const photographyData = [
         id: 'photo-2',
         title: 'The True Honey',
         image: 'assets/images/true honey/true honey 1.jpg',
-        category: 'Fotografía de Producto',
-        description: 'Fotografías de producto con la finalidad de comunicar la marca: natural, orgánica, hogareña y mexicana, pero moderna y saludable.',
+        category: 'Fotografía de Producto / Product Photography',
+        description: 'Fotografías de producto con la finalidad de comunicar la marca: natural, orgánica, hogareña y mexicana, pero moderna y saludable. / Product photography designed to communicate the brand identity: natural, organic, homemade, Mexican, modern and healthy.',
         gallery: [
             'assets/images/true honey/true honey 1.jpg',
             'assets/images/true honey/true honey 2.png',
@@ -44,10 +44,10 @@ const photographyData = [
     },
     {
         id: 'photo-3',
-        title: 'Concierto en la Feria de la Naranja',
+        title: 'Concierto en la Feria de la Naranja / Orange Fair Concert',
         image: 'assets/images/Concierto/concieirto-14_8_11zon.jpg',
-        category: 'Social',
-        description: 'Cobertura fotográfica de un concierto durante la Feria de la Naranja en Montemorelos, N.L.',
+        category: 'Social / Events',
+        description: 'Cobertura fotográfica de un concierto durante la Feria de la Naranja en Montemorelos, N.L. / Photographic coverage of a live concert during the Orange Fair in Montemorelos, N.L.',
         gallery: [
             'assets/images/Concierto/concieirto-1_1_11zon.jpg',
             'assets/images/Concierto/concieirto-2_2_11zon.jpg',
@@ -73,10 +73,10 @@ const photographyData = [
     },
     {
         id: 'photo-4',
-        title: 'Proyecto de Luis',
+        title: 'Proyecto de Luis / Luis\' Portrait',
         image: 'assets/images/Luis/Luis birthday-46.jpg',
-        category: 'Retrato',
-        description: 'Sesión de retratos fotográficos en exterior para Luis.',
+        category: 'Retrato / Portrait',
+        description: 'Sesión de retratos fotográficos en exterior para Luis. / Outdoor portrait photography session for Luis.',
         gallery: [
             'assets/images/Luis/Luis birthday-4.jpg',
             'assets/images/Luis/Luis birthday-16.jpg',
@@ -91,10 +91,10 @@ const photographyData = [
     },
     {
         id: 'photo-5',
-        title: 'Fotografía para Documentos',
+        title: 'Fotografía para Documentos / Official ID Photography',
         image: 'assets/images/Documentos/portada.png',
-        category: 'Estudio',
-        description: 'Fotografías de estudio que cumplen con todos los requisitos técnicos y normativos para trámites y documentos oficiales: fondo adecuado, iluminación uniforme, encuadre preciso y nitidez profesional.',
+        category: 'Estudio / Studio',
+        description: 'Fotografías de estudio que cumplen con todos los requisitos técnicos y normativos para trámites y documentos oficiales: fondo adecuado, iluminación uniforme, encuadre preciso y nitidez profesional. / Studio photographs complying with all technical and regulatory standards for official documents: neutral background, uniform lighting, accurate framing and sharp professional focus.',
         gallery: [
             'assets/images/Documentos/portada.png',
             'assets/images/Documentos/1.png',
@@ -105,10 +105,10 @@ const photographyData = [
     },
     {
         id: 'photo-6',
-        title: 'Prometo No Olvidar',
+        title: 'Prometo No Olvidar / I Promise Not To Forget',
         image: 'assets/images/Prometo no olvidar/4-3E4A2272.jpg',
         category: 'Editorial',
-        description: 'Sesión artística y editorial que expresa la melancolía y la necesidad de aferrarse a los recuerdos y experiencias pasadas. Una exploración visual del duelo, la memoria y el tiempo.',
+        description: 'Sesión artística y editorial que expresa la melancolía y la necesidad de aferrarse a los recuerdos y experiencias pasadas. Una exploración visual del duelo, la memoria y el tiempo. / Artistic and editorial photo session capturing melancholy and the yearning to hold onto past memories. A visual exploration of grief, memory, and time.',
         gallery: [
             'assets/images/Prometo no olvidar/4-3E4A2272.jpg',
             'assets/images/Prometo no olvidar/1-3E4A2115.jpg',
@@ -134,8 +134,8 @@ const designData = [
         id: 'design-villas',
         title: 'Villas',
         image: 'assets/images/Villas/Villas portada.png',
-        category: 'Identidad de Marca',
-        description: 'Unificación de la identidad institucional de Villas y diseño de línea gráfica corporativa. Incluye estandarización para departamentos internos, papelería y la campaña visual de agradecimiento para la alianza estratégica con Innova Sport.',
+        category: 'Identidad de Marca / Brand Identity',
+        description: 'Unificación de la identidad institucional de Villas y diseño de línea gráfica corporativa. Incluye estandarización para departamentos internos, papelería y la campaña visual de agradecimiento para la alianza estratégica con Innova Sport. / Institutional identity unification and corporate graphic system for Villas, including departmental standardization, corporate stationery, and a visual campaign for their strategic alliance with Innova Sport.',
         type: 'design-showcase',
         cover: 'assets/images/Villas/Villas portada.png',
         carousel: [
@@ -154,14 +154,14 @@ const designData = [
             'assets/images/Villas/viillas papelera.png',
             'assets/images/Villas/villas papelera 2.png',
         ],
-        longDescription: 'Rediseño e unificación de la identidad visual de Villas para consolidar una presencia de marca coherente y profesional. El proyecto abarcó desde el desarrollo de la paleta de colores, tipografía y elementos gráficos institucionales, hasta la estandarización de la papelería corporativa y manuales visuales para sus distintos departamentos.<br><br>Además, se conceptualizó y diseñó la campaña gráfica de agradecimiento para su alianza con Innova Sport, asegurando que cada pieza comunicara eficazmente los valores de la organización y reforzara el posicionamiento de la marca ante sus socios estratégicos.',
+        longDescription: 'Rediseño e unificación de la identidad visual de Villas para consolidar una presencia de marca coherente y profesional. El proyecto abarcó desde el desarrollo de la paleta de colores, tipografía y elementos gráficos institucionales, hasta la estandarización de la papelería corporativa y manuales visuales para sus distintos departamentos.<br><br>Además, se conceptualizó y diseñó la campaña gráfica de agradecimiento para su alianza con Innova Sport, asegurando que cada pieza comunicara eficazmente los valores de la organización y reforzara el posicionamiento de la marca ante sus socios estratégicos.<br><br><span class="en-subtext">Visual identity redesign and unification for Villas to consolidate a coherent and professional brand presence. The project spanned color palette development, typography, institutional graphic assets, corporate stationery standardization, and departmental visual guidelines.<br><br>Additionally, the thank-you graphic campaign for their strategic alliance with Innova Sport was conceptualized and crafted, ensuring each piece effectively communicated brand values and elevated market positioning.</span>',
     },
     {
         id: 'design-1',
-        title: 'Manual de Marca',
+        title: 'Manual de Marca / Brand Manual',
         image: 'assets/images/Fernando/Portada.png',
         category: 'Branding',
-        description: 'Creación del manual de identidad visual para la marca de asesoría de Fernando. Un proyecto enfocado en conectar el valor de sus raíces con un diseño moderno, fresco y actualizado para proyectar una imagen sólida y coherente.',
+        description: 'Creación del manual de identidad visual para la marca de asesoría de Fernando. Un proyecto enfocado en conectar el valor de sus raíces con un diseño moderno, fresco y actualizado para proyectar una imagen sólida y coherente. / Visual identity manual for Fernando\'s consulting brand, merging rooted values with modern, fresh design to project a solid and coherent image.',
         type: 'design-showcase',
         cover: 'assets/images/Fernando/Portada.png',
         carousel: [
@@ -187,8 +187,8 @@ const designData = [
         id: 'design-2',
         title: 'Sima',
         image: 'assets/images/Sima/Animación Sima.mp4',
-        category: 'Diseño Web',
-        description: 'Rediseño colaborativo de la interfaz UI/UX y creación de wireframes para SIMA, el software médico del Hospital La Carlota. Un enfoque centrado en optimizar la gestión médica y mejorar la experiencia de servicio de los pacientes.',
+        category: 'Diseño Web / Web Design',
+        description: 'Rediseño colaborativo de la interfaz UI/UX y creación de wireframes para SIMA, el software médico del Hospital La Carlota. Un enfoque centrado en optimizar la gestión médica y mejorar la experiencia de servicio de los pacientes. / Collaborative UI/UX redesign and wireframing for SIMA, Hospital La Carlota\'s medical software, focused on streamlining clinical workflows and elevating patient care.',
         type: 'design-showcase',
         cover: '',
         carousel: [],
@@ -200,47 +200,47 @@ const designData = [
                 'assets/images/Sima/Laptop_2.png'
             ]
         ],
-        longDescription: 'Desarrollo colaborativo de la estructura de interfaz (wireframes) para la renovación de SIMA, la plataforma y software médico en línea del Hospital La Carlota. El proyecto consistió en un rediseño integral centrado en las personas (User-Centered Design), enfocado en resolver las necesidades operativas de los médicos y optimizar la experiencia digital de los pacientes.<br><br>A través de la arquitectura de información y la simplificación de flujos de navegación, se sentaron las bases para una plataforma intuitiva y eficiente, orientada a agilizar los procesos médicos y elevar la calidad de la atención al usuario final.'
+        longDescription: 'Desarrollo colaborativo de la estructura de interfaz (wireframes) para la renovación de SIMA, la plataforma y software médico en línea del Hospital La Carlota. El proyecto consistió en un rediseño integral centrado en las personas (User-Centered Design), enfocado en resolver las necesidades operativas de los médicos y optimizar la experiencia digital de los pacientes.<br><br>A través de la arquitectura de información y la simplificación de flujos de navegación, se sentaron las bases para una plataforma intuitiva y eficiente, orientada a agilizar los procesos médicos y elevar la calidad de la atención al usuario final.<br><br><span class="en-subtext">Collaborative wireframing and interface architecture for the renewal of SIMA, Hospital La Carlota\'s online medical platform. The initiative centered on User-Centered Design (UCD) to address operational physician needs and elevate the patient digital journey.<br><br>Through information architecture and streamlined navigation flows, the foundation was established for an intuitive and efficient platform designed to accelerate clinical procedures and raise final healthcare quality.</span>'
     },
     {
         id: 'design-3',
         title: 'Little Friends Vet',
         image: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
         category: 'Social Media',
-        description: 'Creación de marca y diseño visual para la clínica veterinaria Little Friends Vet.',
+        description: 'Creación de marca y diseño visual para la clínica veterinaria Little Friends Vet. / Branding and visual identity for Little Friends Vet veterinary clinic.',
         type: 'design-showcase',
         cover: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
         carousel: [],
         elements: [
             'assets/images/little frients vet.png'
         ],
-        longDescription: 'Este proyecto de branding se centró en desarrollar una identidad amigable y profesional para Little Friends Vet, transmitiendo confianza y calidez tanto en su logotipo como en los materiales gráficos secundarios.'
+        longDescription: 'Este proyecto de branding se centró en desarrollar una identidad amigable y profesional para Little Friends Vet, transmitiendo confianza y calidez tanto en su logotipo como en los materiales gráficos secundarios.<br><br><span class="en-subtext">This branding project focused on crafting a welcoming and professional identity for Little Friends Vet, conveying trust and warmth across the primary logo and secondary collateral materials.</span>'
     },
     {
         id: 'design-4',
         title: 'Biblia 5D',
         image: 'assets/images/BIBLIA 5D Trailer.mp4',
-        category: 'Creación de identidad',
-        description: 'Creación del logotipo y desarrollo del sistema gráfico para el programa de TV "5D". Incluye ilustración de personajes y recursos visuales destinados a la producción en pantalla y transmisión para Hope Channel y SETAI.',
+        category: 'Creación de identidad / Identity Design',
+        description: 'Creación del logotipo y desarrollo del sistema gráfico para el programa de TV "5D". Incluye ilustración de personajes y recursos visuales destinados a la producción en pantalla y transmisión para Hope Channel y SETAI. / Logo creation and broadcast graphics system for "5D" TV show, featuring character illustrations and on-screen production assets for Hope Channel and SETAI.',
         type: 'design-showcase',
         cover: 'assets/images/BIBLIA 5D Trailer.mp4',
         carousel: [],
         elements: [
             'assets/images/biblia 5d.png'
         ],
-        longDescription: 'Desarrollo de la identidad gráfica y universo visual para el programa de televisión 5D, producido en colaboración para Hope Channel y SETAI. El proyecto abarcó desde el diseño del logotipo principal del programa hasta la creación de un paquete completo de recursos gráficos, ilustraciones de personajes y elementos dinámicos pensados específicamente para enriquecer la producción audiovisual y la escenografía del show.<br><br>El objetivo principal fue construir una estética atractiva, cercana y coherente con el formato televisivo, proporcionando al equipo de producción las herramientas visuales necesarias para adaptar el contenido tanto en pantalla como en medios digitales.'
+        longDescription: 'Desarrollo de la identidad gráfica y universo visual para el programa de televisión 5D, producido en colaboración para Hope Channel y SETAI. El proyecto abarcó desde el diseño del logotipo principal del programa hasta la creación de un paquete completo de recursos gráficos, ilustraciones de personajes y elementos dinámicos pensados específicamente para enriquecer la producción audiovisual y la escenografía del show.<br><br>El objetivo principal fue construir una estética atractiva, cercana y coherente con el formato televisivo, proporcionando al equipo de producción las herramientas visuales necesarias para adaptar el contenido tanto en pantalla como en medios digitales.<br><br><span class="en-subtext">Design of graphic identity and visual universe for the 5D television show produced for Hope Channel and SETAI. The scope encompassed main show logo design, a complete graphics asset package, character illustrations, and dynamic broadcast animations tailored for studio production.<br><br>The primary goal was to construct an engaging, approachable aesthetic aligned with broadcast television formats, empowering production teams with versatile visual tools across screens and digital media.</span>'
     },
     {
         id: 'design-5',
-        title: 'Animación tipográfica',
+        title: 'Animación tipográfica / Kinetic Typography',
         image: 'assets/images/Comp 1_2.mp4',
         category: 'Motion Graphics',
-        description: 'Animación en motion graphics de kinetic typography (lyrics animados) sobre un comercial existente de Nike, sincronizando texto y ritmo para potenciar la narrativa y el impacto visual del video.',
+        description: 'Animación en motion graphics de kinetic typography (lyrics animados) sobre un comercial existente de Nike, sincronizando texto y ritmo para potenciar la narrativa y el impacto visual del video. / Motion graphics and kinetic typography animation over an existing Nike commercial, synchronizing animated lyrics and rhythm to enhance visual storytelling.',
         type: 'design-showcase',
         cover: 'assets/images/Comp 1_2.mp4',
         carousel: [],
         elements: [],
-        longDescription: 'Desarrollo de animación tipográfica y motion graphics aplicados sobre un video publicitario existente de la marca Nike. El proyecto consistió en la sincronización precisa de kinetic typography (lyrics animados) sobre la pista de audio original del comercial, integrando el texto de forma orgánica con el ritmo, la dinamismo y el estilo visual característico de la marca.<br><br>El objetivo principal fue potenciar el impacto visual de la pieza publicitaria, reforzando el mensaje del audio a través de transiciones fluidas, tipografía expresiva y efectos gráficos que acompañan la energía de las imágenes.'
+        longDescription: 'Desarrollo de animación tipográfica y motion graphics aplicados sobre un video publicitario existente de la marca Nike. El proyecto consistió en la sincronización precisa de kinetic typography (lyrics animados) sobre la pista de audio original del comercial, integrando el texto de forma orgánica con el ritmo, la dinamismo y el estilo visual característico de la marca.<br><br>El objetivo principal fue potenciar el impacto visual de la pieza publicitaria, reforzando el mensaje del audio a través de transiciones fluidas, tipografía expresiva y efectos gráficos que acompañan la energía de las imágenes.<br><br><span class="en-subtext">Typographic animation and motion graphics applied to an existing Nike advertising video. The project synchronized kinetic typography lyrics with the commercial\'s original soundtrack, organically matching brand pace, dynamism, and visual energy.<br><br>The objective was to elevate the advert\'s visual impact, reinforcing the auditory narrative through fluid transitions, expressive type, and graphic accents matching the imagery.</span>'
     }
 ];
 
@@ -316,9 +316,9 @@ function createGalleryItem(item, index) {
             <div class="gallery-overlay">
                 <span class="gallery-category">${item.category}</span>
                 <h3 class="gallery-title">${item.title}</h3>
-                ${isDesignShowcase ? `<span class="gallery-count"><i class="fa-solid fa-layer-group"></i> Ver proyecto</span>` : ''}
+                ${isDesignShowcase ? `<span class="gallery-count"><i class="fa-solid fa-layer-group"></i> Ver proyecto / View project</span>` : ''}
                 ${(!isDesignShowcase && hasGallery) ? `<span class="gallery-count"><i class="fa-solid fa-images"></i> ${item.gallery.length}</span>` : ''}
-                <button class="gallery-expand-btn" data-id="${item.id}" aria-label="Ver imagen">
+                <button class="gallery-expand-btn" data-id="${item.id}" aria-label="Ver imagen / View image">
                     <i class="fa-solid fa-expand"></i>
                 </button>
             </div>
@@ -386,10 +386,10 @@ function openDesignModal(item) {
 
     // --- Carrusel horizontal o Cuadrícula de fotos (para Bodas) ---
     if (item.carousel && item.carousel.length > 0) {
-        if (item.category === 'Bodas') {
+        if (item.category && item.category.includes('Bodas')) {
             html += `
                 <div class="design-grid-section">
-                    <p class="design-carousel-label">Fotografías del Proyecto</p>
+                    <p class="design-carousel-label">Fotografías del Proyecto / Project Photos</p>
                     <div class="design-photo-grid">
                         ${item.carousel.map((src, i) => {
                 return `
@@ -404,7 +404,7 @@ function openDesignModal(item) {
         } else {
             html += `
                 <div class="design-carousel-section">
-                    <p class="design-carousel-label">Mockups y diapositivas</p>
+                    <p class="design-carousel-label">Mockups y diapositivas / Mockups & slides</p>
                     <div class="design-carousel-track-wrapper" id="design-carousel-wrapper">
                         <div class="design-carousel-track">
                             ${item.carousel.map((src, i) => {
@@ -425,7 +425,7 @@ function openDesignModal(item) {
     if (item.elements && item.elements.length > 0) {
         html += `
             <div class="design-elements-section">
-                <p class="design-elements-label">Elementos</p>
+                <p class="design-elements-label">Elementos / Elements</p>
                 <div class="design-elements-list">
                     ${item.elements.map((src, i) => {
             if (Array.isArray(src)) {
@@ -439,7 +439,7 @@ function openDesignModal(item) {
             } else {
                 let extraHtml = '';
                 if (src.includes('Villas Tríptico.png')) {
-                    extraHtml = '<p class="design-elements-label" style="margin-top: 1.5rem;">Ejemplos de rediseño de papelería</p>';
+                    extraHtml = '<p class="design-elements-label" style="margin-top: 1.5rem;">Ejemplos de rediseño de papelería / Stationery redesign examples</p>';
                 }
                 return `${extraHtml}${createMediaHTML(src, `Elemento ${i + 1} — ${item.title}`, 'design-element-img')}`;
             }
@@ -526,7 +526,7 @@ function renderGallery(items, gridId) {
         grid.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted);">
                 <i class="fa-solid fa-image" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                <p>Próximamente...</p>
+                <p>Próximamente... / Coming soon...</p>
             </div>
         `;
         return;
@@ -817,9 +817,9 @@ function closeProjectModal() {
 const bodasData = [
     {
         id: 'bodas-1',
-        title: 'Cobertura de Boda',
-        category: 'Bodas',
-        description: 'Fotografía documental y artística de bodas. Capturando las emociones más puras y espontáneas de tu gran día.',
+        title: 'Cobertura de Boda / Wedding Coverage',
+        category: 'Bodas / Weddings',
+        description: 'Fotografía documental y artística de bodas. Capturando las emociones más puras y espontáneas de tu gran día. / Documentary and artistic wedding photography, capturing the purest and most spontaneous emotions of your big day.',
         type: 'design-showcase',
         isFramed: true,
         coverCarousel: [
@@ -843,13 +843,13 @@ const bodasData = [
             'assets/images/Bodas/port boda/Wedding_Jimena&Jorge-650_2_11zon.jpg'
         ],
         elements: [],
-        longDescription: 'Capturando momentos honestos, sonrisas espontáneas y detalles únicos en cada boda. Un enfoque documental mezclado con dirección artística para lograr recuerdos atemporales.'
+        longDescription: 'Capturando momentos honestos, sonrisas espontáneas y detalles únicos en cada boda. Un enfoque documental mezclado con dirección artística para lograr recuerdos atemporales.<br><br><span class="en-subtext">Capturing candid moments, genuine smiles, and unique details at every wedding. A documentary approach blended with artistic direction to create timeless memories.</span>'
     },
     {
         id: 'bodas-2',
-        title: 'Sesión Preboda',
-        category: 'Bodas',
-        description: 'Sesión fotográfica casual y divertida. Conectando y capturando su complicidad en un ambiente relajado antes de la gran boda.',
+        title: 'Sesión Preboda / Pre-Wedding Session',
+        category: 'Bodas / Weddings',
+        description: 'Sesión fotográfica casual y divertida. Conectando y capturando su complicidad en un ambiente relajado antes de la gran boda. / Casual and fun photography session, capturing intimacy and complicity in a relaxed atmosphere before the wedding day.',
         type: 'design-showcase',
         isFramed: true,
         coverCarousel: [
@@ -873,7 +873,7 @@ const bodasData = [
             'assets/images/Bodas/pre boda/JIMENA_JORGE-91_11_11zon.jpg'
         ],
         elements: [],
-        longDescription: 'Una sesión diseñada para que los novios se relajen frente a la cámara, disfruten de un momento juntos y capturen retratos espontáneos y auténticos antes del gran día de la boda.'
+        longDescription: 'Una sesión diseñada para que los novios se relajen frente a la cámara, disfruten de un momento juntos y capturen retratos espontáneos y auténticos antes del gran día de la boda.<br><br><span class="en-subtext">A session designed for couples to relax in front of the lens, enjoy quality time together, and capture candid, authentic portraits prior to the wedding day.</span>'
     }
 ];
 

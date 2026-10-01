@@ -446,11 +446,11 @@ textarea {
 .nav-list {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.1rem;
 }
 
 .nav-link {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.75);
     position: relative;
@@ -458,6 +458,23 @@ textarea {
     font-family: var(--font-body);
     letter-spacing: 0.02em;
     transition: color var(--transition-fast);
+    white-space: nowrap;
+}
+
+/* Dual language subtext helper */
+.en-subtext {
+    display: block;
+    font-size: 0.88em;
+    opacity: 0.85;
+    margin-top: 0.35rem;
+    font-weight: 400;
+}
+
+.hero-description-block .en-subtext {
+    margin-top: 0.45rem;
+    font-size: 0.92em;
+    opacity: 0.9;
+    line-height: 1.5;
 }
 
 .nav-link:hover,

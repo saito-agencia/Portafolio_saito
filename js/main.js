@@ -35,7 +35,7 @@ function initTheme() {
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('saito-portfolio-theme', newTheme);
 
-            showToast(`Modo ${newTheme === 'dark' ? 'Oscuro' : 'Claro'} activado`, 'success');
+            showToast(`Modo ${newTheme === 'dark' ? 'Oscuro' : 'Claro'} activado / ${newTheme === 'dark' ? 'Dark' : 'Light'} mode enabled`, 'success');
         });
     }
 }
@@ -188,7 +188,7 @@ function initContactForm() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
             <i class="fa-solid fa-spinner fa-spin"></i>
-            <span>Enviando...</span>
+            <span>Enviando... / Sending...</span>
         `;
 
         const data = new FormData(e.target);
@@ -204,12 +204,12 @@ function initContactForm() {
 
             if (response.ok) {
                 form.reset();
-                showToast('¡Mensaje enviado con éxito! Me pondré en contacto pronto.', 'success');
+                showToast('¡Mensaje enviado con éxito! / Message sent successfully!', 'success');
             } else {
-                showToast('Hubo un problema al enviar tu mensaje. Intenta de nuevo.', 'error');
+                showToast('Hubo un problema al enviar tu mensaje. / There was a problem sending your message.', 'error');
             }
         } catch (error) {
-            showToast('Ocurrió un error de red. Intenta de nuevo.', 'error');
+            showToast('Ocurrió un error de red. Intenta de nuevo. / Network error. Please try again.', 'error');
         } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnText;
@@ -223,14 +223,14 @@ function initCvButton() {
     const cvBtn = document.getElementById('cv-btn');
     if (cvBtn) {
         cvBtn.addEventListener('click', () => {
-            showToast('Descargando Currículum Vitae...', 'success');
+            showToast('Descargando Currículum Vitae... / Downloading Resume...', 'success');
         });
     }
 
     const paquetesBtn = document.getElementById('paquetes-btn');
     if (paquetesBtn) {
         paquetesBtn.addEventListener('click', () => {
-            showToast('Descargando Paquetes Boda 2026...', 'success');
+            showToast('Descargando Paquetes Boda 2026... / Downloading 2026 Wedding Packages...', 'success');
         });
     }
 }

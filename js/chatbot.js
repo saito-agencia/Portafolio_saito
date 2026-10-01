@@ -121,16 +121,16 @@
         const widget = document.createElement('div');
         widget.id = 'saito-chat-widget';
         widget.className = 'saito-chat-widget';
-        widget.setAttribute('aria-label', 'Asistente Saito');
+        widget.setAttribute('aria-label', 'Asistente Saito / Saito Assistant');
 
         widget.innerHTML = `
             <!-- Tooltip flotante inicial -->
             <div class="saito-chat-tooltip" id="saito-chat-tooltip">
-                ¿Tienes alguna duda? ¡Chatea con nosotros!
+                ¿Tienes alguna duda? ¡Chatea con nosotros! / Have questions? Chat with us!
             </div>
 
             <!-- Botón flotante -->
-            <button class="saito-chat-trigger" id="saito-chat-trigger" aria-label="Abrir asistente de chat">
+            <button class="saito-chat-trigger" id="saito-chat-trigger" aria-label="Abrir asistente de chat / Open chat assistant">
                 <i class="fa-solid fa-comments trigger-icon-open"></i>
                 <i class="fa-solid fa-xmark trigger-icon-close"></i>
                 <span class="saito-chat-badge" id="saito-chat-badge">1</span>
@@ -146,15 +146,15 @@
                             <span class="saito-status-dot"></span>
                         </div>
                         <div class="saito-chat-title">
-                            <h4>Asistente Saito</h4>
-                            <span><i class="fa-solid fa-bolt"></i> En línea</span>
+                            <h4>Asistente Saito / Saito Assistant</h4>
+                            <span><i class="fa-solid fa-bolt"></i> En línea / Online</span>
                         </div>
                     </div>
                     <div class="saito-chat-header-actions">
-                        <button class="saito-chat-btn-icon" id="saito-chat-reset" title="Reiniciar chat" aria-label="Reiniciar conversación">
+                        <button class="saito-chat-btn-icon" id="saito-chat-reset" title="Reiniciar chat / Reset chat" aria-label="Reiniciar conversación / Reset conversation">
                             <i class="fa-solid fa-arrow-rotate-right"></i>
                         </button>
-                        <button class="saito-chat-btn-icon" id="saito-chat-close" title="Cerrar chat" aria-label="Cerrar ventana">
+                        <button class="saito-chat-btn-icon" id="saito-chat-close" title="Cerrar chat / Close chat" aria-label="Cerrar ventana / Close window">
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
                     </div>
@@ -171,11 +171,11 @@
                         <input type="text" 
                                class="saito-chat-input" 
                                id="saito-chat-input" 
-                               placeholder="Escribe tu consulta aquí..." 
+                               placeholder="Escribe tu consulta aquí... / Type your message here..." 
                                autocomplete="off"
                                maxlength="300"
-                               aria-label="Mensaje para el asistente">
-                        <button type="submit" class="saito-chat-submit" id="saito-chat-submit" aria-label="Enviar mensaje">
+                               aria-label="Mensaje para el asistente / Message for assistant">
+                        <button type="submit" class="saito-chat-submit" id="saito-chat-submit" aria-label="Enviar mensaje / Send message">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </form>
