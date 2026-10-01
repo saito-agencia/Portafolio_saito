@@ -330,40 +330,40 @@ function initBlobParallax() {
         {
             el: document.querySelector('.blob-1'),
             // Blob 1: se va hacia abajo-derecha y encoge
-            xFactor:     0.06,   // desplazamiento X por px de scroll
-            yFactor:     0.14,   // desplazamiento Y por px de scroll
-            scaleBase:   1.0,
+            xFactor: 0.06,   // desplazamiento X por px de scroll
+            yFactor: 0.14,   // desplazamiento Y por px de scroll
+            scaleBase: 1.0,
             scaleFactor: -0.00015, // encoge al bajar (negativo)
             current: { x: 0, y: 0, scale: 1 },
-            target:  { x: 0, y: 0, scale: 1 },
+            target: { x: 0, y: 0, scale: 1 },
         },
         {
             el: document.querySelector('.blob-2'),
             // Blob 2: se va hacia arriba-izquierda y crece
-            xFactor:    -0.09,
-            yFactor:    -0.18,
-            scaleBase:   1.0,
-            scaleFactor:  0.0002,  // crece al bajar (positivo)
+            xFactor: -0.09,
+            yFactor: -0.18,
+            scaleBase: 1.0,
+            scaleFactor: 0.0002,  // crece al bajar (positivo)
             current: { x: 0, y: 0, scale: 1 },
-            target:  { x: 0, y: 0, scale: 1 },
+            target: { x: 0, y: 0, scale: 1 },
         },
         {
             el: document.querySelector('.blob-3'),
             // Blob 3: diagonal y pulsa
-            xFactor:     0.12,
-            yFactor:     0.08,
-            scaleBase:   1.0,
+            xFactor: 0.12,
+            yFactor: 0.08,
+            scaleBase: 1.0,
             scaleFactor: -0.0001,
             current: { x: 0, y: 0, scale: 1 },
-            target:  { x: 0, y: 0, scale: 1 },
+            target: { x: 0, y: 0, scale: 1 },
         },
     ].filter(b => b.el); // ignora blobs que no existan en el DOM
 
     if (blobs.length === 0) return;
 
     const LERP = 0.07; // factor de suavizado (0 = sin movimiento, 1 = instantáneo)
-    let scrollY  = 0;
-    let rafId    = null;
+    let scrollY = 0;
+    let rafId = null;
 
     // Actualizar targets en scroll (sin cálculos pesados aquí)
     window.addEventListener('scroll', () => {
@@ -374,21 +374,21 @@ function initBlobParallax() {
     function tick() {
         blobs.forEach(blob => {
             // Calcular targets según scroll actual
-            blob.target.x     = scrollY * blob.xFactor;
-            blob.target.y     = scrollY * blob.yFactor;
+            blob.target.x = scrollY * blob.xFactor;
+            blob.target.y = scrollY * blob.yFactor;
             blob.target.scale = blob.scaleBase + scrollY * blob.scaleFactor;
 
             // Clamp de escala para que no desaparezca ni crezca demasiado
             blob.target.scale = Math.max(0.4, Math.min(2.0, blob.target.scale));
 
             // Interpolar suavemente hacia el target (lerp)
-            blob.current.x     += (blob.target.x     - blob.current.x)     * LERP;
-            blob.current.y     += (blob.target.y     - blob.current.y)     * LERP;
+            blob.current.x += (blob.target.x - blob.current.x) * LERP;
+            blob.current.y += (blob.target.y - blob.current.y) * LERP;
             blob.current.scale += (blob.target.scale - blob.current.scale) * LERP;
 
             // Aplicar con propiedades CSS individuales (no colisionan con animation en `transform`)
             blob.el.style.translate = `${blob.current.x.toFixed(2)}px ${blob.current.y.toFixed(2)}px`;
-            blob.el.style.scale     = blob.current.scale.toFixed(4);
+            blob.el.style.scale = blob.current.scale.toFixed(4);
         });
 
         rafId = requestAnimationFrame(tick);

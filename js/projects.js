@@ -2,8 +2,6 @@
    PORTAFOLIO DE RENÉ SAITO - GALERÍAS DE FOTOGRAFÍA Y DISEÑO
    ========================================================================== */
 
-/* ---------- DATA ---------- */
-
 const photographyData = [
     {
         id: 'photo-1',
@@ -205,11 +203,11 @@ const designData = [
     {
         id: 'design-3',
         title: 'Little Friends Vet',
-        image: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
+        image: 'assets/images/little-friends-cover.jpg',
         category: 'Social Media',
         description: 'Creación de marca y diseño visual para la clínica veterinaria Little Friends Vet.<span class="en-subtext">Branding and visual identity for Little Friends Vet veterinary clinic.</span>',
         type: 'design-showcase',
-        cover: 'assets/images/Gemini_Generated_Image_oxagoaoxagoaoxag.jpg',
+        cover: 'assets/images/little-friends-cover.jpg',
         carousel: [],
         elements: [
             'assets/images/little frients vet.png'
@@ -243,8 +241,6 @@ const designData = [
         longDescription: 'Desarrollo de animación tipográfica y motion graphics aplicados sobre un video publicitario existente de la marca Nike. El proyecto consistió en la sincronización precisa de kinetic typography (lyrics animados) sobre la pista de audio original del comercial, integrando el texto de forma orgánica con el ritmo, la dinamismo y el estilo visual característico de la marca.<br><br>El objetivo principal fue potenciar el impacto visual de la pieza publicitaria, reforzando el mensaje del audio a través de transiciones fluidas, tipografía expresiva y efectos gráficos que acompañan la energía de las imágenes.<br><br><span class="en-subtext">Typographic animation and motion graphics applied to an existing Nike advertising video. The project synchronized kinetic typography lyrics with the commercial\'s original soundtrack, organically matching brand pace, dynamism, and visual energy.<br><br>The objective was to elevate the advert\'s visual impact, reinforcing the auditory narrative through fluid transitions, expressive type, and graphic accents matching the imagery.</span>'
     }
 ];
-
-/* ---------- RENDER HELPERS ---------- */
 
 /**
  * Helper to generate the correct HTML tag (img, video, or iframe for YouTube).
@@ -347,14 +343,6 @@ function createGalleryItem(item, index) {
     return article;
 }
 
-/* ---------- DESIGN SHOWCASE MODAL (Villas) ---------- */
-
-/**
- * Opens the project modal with a special layout for design showcase items:
- * - Cover image (full width)
- * - Horizontal drag-scroll carousel (same-height photos, side by side)
- * - Elements stacked vertically in order
- */
 function openDesignModal(item) {
     const modal = document.getElementById('project-modal');
     const modalBody = document.getElementById('modal-body');
@@ -536,8 +524,6 @@ function renderGallery(items, gridId) {
         grid.appendChild(createGalleryItem(item, i));
     });
 }
-
-/* ---------- LIGHTBOX (fixed frame + thumbnail strip + description) ---------- */
 
 let currentLightboxGallery = [];
 let currentLightboxIndex = 0;
@@ -812,8 +798,6 @@ function closeProjectModal() {
     currentLightboxItem = null;
 }
 
-/* ---------- INIT ---------- */
-
 const bodasData = [
     {
         id: 'bodas-1',
@@ -914,7 +898,6 @@ function initCoverCarousels() {
     }
 }
 
-/* ---------- OVERLAY PARA ZOOM DE IMÁGENES DE DISEÑO ---------- */
 function openZoomOverlay(src) {
     if (!src || src.includes('youtube.com') || src.includes('youtu.be')) return; // No zoom for youtube videos
 
